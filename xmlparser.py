@@ -29,6 +29,15 @@ def xmlparser(input_file:str):
             raise AttributeError(f"Invalid color : {keyclr} is not a valid IDFM color")
         clr = IDFM_COLORS[keyclr]
 
+        # calcul du nombre maximal de branches parallèles
+        # >>> on améliorera la logique pour prendre en compte un vrai calcul
+        maxpb = root.get('maxpb')
+        if maxpb is None:
+            raise AttributeError("maxpb attribute was not found")
+        maxpb = int(maxpb)
+        if maxpb<=0:
+            raise ValueError
+
         # récupère l'embedding
         base = root[0]
 
@@ -36,12 +45,14 @@ def xmlparser(input_file:str):
         raise f3err
     except AttributeError as aerr:
         raise aerr
+    except ValueError:
+        raise AttributeError("Cannot convert maxpb into a valid integer")
     except Exception:
         raise Exception("An unknown exception occured")
     
     else:
         # la GÉNÉRATION
         if theme=='bus':        
-            bus_generator(base,clr,output)
+            bus_generator(base,clr,output,maxpb)
         else:
             raise AttributeError(f"Theme {theme} is not allowed")
