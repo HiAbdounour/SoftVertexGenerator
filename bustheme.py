@@ -82,7 +82,22 @@ def stop_name(cx:int,cy:int,step:int,txt:str,link:str,bold:bool,dx:int):
     bx = 'font-weight:800;' if bold else ""
     return f'<a href="https://idfmwiki.miraheze.org/wiki/{xml_characters(link)}" target="_self">\n<text x="{cx+step+dx}" y="{cy+6}" style="cursor:pointer;{bx}">{xml_characters(txt)}</text>\n</a>'
 
-
+def crosssection(cx:int,cy:int,dx:int,clr:str,from_active:bool=False,to_active:bool=False):
+    """
+    Construis une bifurcation entre deux branches
+    >> from : la bifurcation passe de deux branches à une branche (regroupement)
+    >> to : la bifurcation passe d'une branche à deux branches (séparation)
+    """
+    AX = cx-7+dx
+    AY = cy
+    if from_active:
+        ddd = -1
+    elif to_active:
+        ddd = 1
+    else:
+        raise RuntimeError('from or to crosssection ?')
+    p = f'<polygon points="{AX+14},{AY} {AX},{AY} {AX+16},{AY+20*ddd} {AX+30},{AY+20*ddd} {AX+46},{AY} {AX+32},{AY} {AX+23},{AY+10*ddd}" fill="{clr}"/>'
+    return p
 
 
 #### CONTROLE
@@ -90,17 +105,29 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int):
     """
     Génère le SVG selon le thème BUS
     """
+    # GLOBAL PARAMETERS
+    SVG = ""
+    J = 25
+
     # Disjonction de cas : <branch> ou <branches> ou <cross>
     for cmpx in range(len(line)):
         cpmxtag = line[cmpx].tag
 
+# BON EUH LE WORKFLOW DE LA PLUSIEURS BRANCHES NE MARCHE PAS DU TOUT FLOP TOTAL !
+
         # cas d'une seule branche
         if cpmxtag=="branch":
-            unibranch_generator(line[cmpx],clr,output,(maxpb-1)*10) # pas optimisé pour formes complexes
+            if maxpb==1:
+                dx=0
+            else:
+                dx = 16 + (maxpb-1)*32 # pas optimisé pour formes complexes
+            APPEND,J = unibranch_generator(line[cmpx],clr,output,dx,J) 
+            SVG = SVG+APPEND
 
         # cas de plusieurs branches en parallèle
         elif cpmxtag=="branches":
             pass
+            J+=20
 
         # cas d'une séparation
         elif cpmxtag=="cross":
@@ -111,13 +138,23 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int):
             raise NameError(f"The tag <{cpmxtag}> is NOT allowed.")
 
 
-def unibranch_generator(branch:Element[str],clr:str,output:str,dx:int):
+    # Headers
+    HEADER1 = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    HEADER2 = f'<svg width="500" height="{J+10}" xmlns="http://www.w3.org/2000/svg">\n<style>\ntext{{\n\tfont-family: sans-serif;\n}}\n</style>'
+
+    # Enregistrement
+    with open(output,"w") as svgfile:
+        svgfile.write(HEADER1+HEADER2+SVG+'\n</svg>')
+    return
+
+
+def unibranch_generator(branch:Element[str],clr:str,output:str,dx:int,j:int):
     """
     Génère une seule branche pour le thème BUS
     """
     # Paramètres
     BUILD = ""
-    i,j = 15,25
+    i = 15
     TEXT_STEP = 15
 
     # Corps
@@ -147,11 +184,4 @@ def unibranch_generator(branch:Element[str],clr:str,output:str,dx:int):
 
         j+=50
 
-    # Headers
-    HEADER1 = '<?xml version="1.0" encoding="UTF-8"?>\n'
-    HEADER2 = f'<svg width="500" height="{j+10}" xmlns="http://www.w3.org/2000/svg">\n<style>\ntext{{\n\tfont-family: sans-serif;\n}}\n</style>'
-
-    # Enregistrement
-    with open(output,"w") as svgfile:
-        svgfile.write(HEADER1+HEADER2+BUILD+'\n</svg>')
-    return
+    return (BUILD,j)
