@@ -75,12 +75,12 @@ def unidirectional_terminus(cx:int,cy:int,direction:Literal['up','down'],clr:str
 
     return f'<polygon points="{tri}" fill="black"/>\n{terminus(cx,cy,clr)}'
 
-def stop_name(cx:int,cy:int,dx:int,txt:str,link:str,bold:bool):
+def stop_name(cx:int,cy:int,step:int,txt:str,link:str,bold:bool):
     """
     Ajouter le nom de l'arrêt avec un lien vers sa page wiki
     """
     bx = 'font-weight:800;' if bold else ""
-    return f'<a href="https://idfmwiki.miraheze.org/wiki/{xml_characters(link)}" target="_self">\n<text x="{cx+dx}" y="{cy+6}" style="cursor:pointer;{bx}">{xml_characters(txt)}</text>\n</a>'
+    return f'<a href="https://idfmwiki.miraheze.org/wiki/{xml_characters(link)}" target="_self">\n<text x="{cx+step}" y="{cy+6}" style="cursor:pointer;{bx}">{xml_characters(txt)}</text>\n</a>'
 
 
 
@@ -96,7 +96,7 @@ def bus_generator(line:Element[str],clr:str,output:str):
     # Paramètres
     BUILD = ""
     i,j = 15,25
-    dx = 15
+    TEXT_STEP = 15
 
     # Corps
     for x in range(len(branch1)):
@@ -121,7 +121,7 @@ def bus_generator(line:Element[str],clr:str,output:str):
             BUILD = BUILD + stop(i,j)
         else:
             BUILD = BUILD + unidirectional_stop(i,j,uni)
-        BUILD = BUILD + '\n' + stop_name(i,j,dx,stopx_name,stopx_ref,term)
+        BUILD = BUILD + '\n' + stop_name(i,j,TEXT_STEP,stopx_name,stopx_ref,term)
 
         j+=50
 
