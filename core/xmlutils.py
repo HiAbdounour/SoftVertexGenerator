@@ -1,4 +1,4 @@
-from constants import CHARACTERS
+from constants.constants import CHARACTERS
 
 def xml_characters(txt:str):
     """

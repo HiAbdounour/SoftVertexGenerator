@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as xET
-from constants import IDFM_COLORS
+from constants.constants import IDFM_COLORS
 # les thèmes
 from themes import *
 

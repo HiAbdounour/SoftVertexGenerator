@@ -4,7 +4,7 @@ Le thème utilisé pour les lignes de bus.
 """
 from typing import Literal
 from xml.etree.ElementTree import Element
-from core.constants import CHARACTERS
+from constants.constants import CHARACTERS
 from core.xmlutils import xml_characters
 
 
@@ -102,7 +102,16 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int):
     for cmpx in range(len(line)):
         cpmxtag = line[cmpx].tag
 
-        pass
+        # balise <branch>
+        if cpmxtag == 'branch':
+            A,dj = unibranch_generator(line[cmpx],clr,0,J)
+            SVG = SVG+'\n'+A
+            J += dj
+
+        # balise non reconnue
+        else:
+            raise AttributeError(f"Unrecognised <{cpmxtag}> tag !")
+
 
     # Headers
     HEADER1 = '<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -114,7 +123,7 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int):
     return
 
 
-def unibranch_generator(branch:Element[str],clr:str,output:str,dx:int,j:int):
+def unibranch_generator(branch:Element[str],clr:str,dx:int,j:int):
     """
     Génère une seule branche pour le thème BUS
     """
