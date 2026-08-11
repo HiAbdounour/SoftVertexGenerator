@@ -1,120 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xml>
-<svg_generation type="bus" color="rouge_coquelicot" maxpb="1" output="Plan6401.svg">
+<svg_generation type="bus" color="magenta" maxpb="2">
     <line>
+		<branches>
+			<branch>
+				<stop terminus='true' curz='start'>
+					<name>Pilier des Sentinelles</name>
+					<wikiref>Accueil</wikiref>
+				</stop>
+				<stop>
+					<name>Rangée des Valentons</name>
+					<wikiref>Accueil</wikiref>
+				</stop>
+				<stop>
+					<name>Les Valentons</name>
+					<wikiref>Accueil</wikiref>
+				</stop>
+			</branch>
+			<branch>
+				<stop terminus='true' curz='start'>
+					<name>Limais</name>
+					<wikiref>Accueil</wikiref>
+				</stop>
+				<stop>
+					<name>Queretz</name>
+					<wikiref>Accueil</wikiref>
+				</stop>
+			</branch>
+		</branches>
         <branch>
-            <stop terminus="true" curz="start">
-                <name>Gare de Sartrouville</name>
-                <wikiref>Gare_Routière_de_Sartrouville</wikiref>
-            </stop>
-            <stop>
-                <name>Hôtel de Ville (Sartrouville)</name>
-                <wikiref>Hôtel_de_Ville_de_Sartrouville</wikiref>
-            </stop>
-            <stop>
-                <name>MJC</name>
-                <wikiref>MJC_(Sartrouville)</wikiref>
-            </stop>
-            <stop>
-                <name>Bordin</name>
-                <wikiref>Bordin</wikiref>
-            </stop>
-            <stop>
-                <name>Guy de Maupassant</name>
-                <wikiref>Guy_de_Maupassant_(Sartrouville)</wikiref>
-            </stop>
-            <stop>
-                <name>Martial Dechard</name>
-                <wikiref>Martial_Dechard</wikiref>
-            </stop>
-            <stop>
-                <name>Mont Olivet</name>
-                <wikiref>Mont_Olivet</wikiref>
-            </stop>
-            <stop>
-                <name>Picardie</name>
-                <wikiref>Picardie_(Sartrouville)</wikiref>
-            </stop>
-            <stop>
-                <name>Charles de Gaulle</name>
-                <wikiref>Charles_de_Gaulle_(Sartrouville)</wikiref>
-            </stop>
-            <stop only="up">
-                <name>4 Chemins</name>
-                <wikiref>4_Chemins_(Sartrouville)</wikiref>
-            </stop>
-            <stop>
-                <name>Rue de Chatou</name>
-                <wikiref>Rue_de_Chatou</wikiref>
-            </stop>
-            <stop>
-                <name>Paul Bert</name>
-                <wikiref>Paul_Bert_(Sartrouville)</wikiref>
-            </stop>
-            <stop>
-                <name>Florian</name>
-                <wikiref>Florian_(Sartrouville)</wikiref>
-            </stop>
-            <stop terminus="true">
-                <name>Condorcet</name>
-                <wikiref>Condorcet_(Sartrouville)</wikiref>
-            </stop>
-            <stop terminus="true">
-                <name>Val Notre-Dame</name>
-                <wikiref>Val_Notre-Dame_(Argenteuil)</wikiref>
-            </stop>
-            <stop>
-                <name>Liserons</name>
-                <wikiref>Liserons</wikiref>
-            </stop>
-            <stop>
-                <name>Collège Albert Camus</name>
-                <wikiref>Collège_Albert_Camus</wikiref>
-            </stop>
-            <stop>
-                <name>Alouettes</name>
-                <wikiref>Alouettes_(Argenteuil)</wikiref>
-            </stop>
-            <stop>
-                <name>Les Champioux</name>
-                <wikiref>Les_Champioux</wikiref>
-            </stop>
-            <stop>
-                <name>Baratier</name>
-                <wikiref>Baratier</wikiref>
-            </stop>
-            <stop>
-                <name>Maurice Utrillo</name>
-                <wikiref>Maurice_Utrillo</wikiref>
-            </stop>
-            <stop>
-                <name>Jean Moulin</name>
-                <wikiref>Jean_Moulin_(Argenteuil)</wikiref>
-            </stop>
-            <stop>
-                <name>Gandon Texier</name>
-                <wikiref>Gandon_Texier</wikiref>
-            </stop>
-            <stop>
-                <name>Calais</name>
-                <wikiref>Calais</wikiref>
-            </stop>
-            <stop>
-                <name>Antonin-Georges Belin</name>
-                <wikiref>Antonin-Georges_Belin</wikiref>
-            </stop>
-            <stop>
-                <name>Hôtel de Ville (Argenteuil)</name>
-                <wikiref>Hôtel_de_Ville_d%27Argenteuil</wikiref>
-            </stop>
-            <stop>
-                <name>Léon Feix</name>
-                <wikiref>Léon_Feix</wikiref>
-            </stop>
-            <stop terminus="true" curz="end">
-                <name>Gare d'Argenteuil</name>
-                <wikiref>Gare_Routière_d%27Argenteuil</wikiref>
-            </stop>
-        </branch>
+			<stop>
+				<name>La Rochelle-des-Bois</name>
+				<wikiref>Accueil</wikiref>
+			</stop>
+			<stop>
+				<name>Pirène</name>
+				<wikiref>Accueil</wikiref>
+			</stop>
+			<stop>
+				<name>Grosland-sous-Mer</name>
+				<wikiref>Accueil</wikiref>
+			</stop>
+			<stop>
+				<name>Friandville Centre</name>
+				<wikiref>Accueil</wikiref>
+			</stop>
+		</branch>
+		<branches>
+			<branch>
+				<stop>
+					<name>Friandville Les Grands</name>
+					<wikiref>Accueil</wikiref>
+				</stop>
+				<stop terminus='true' curz='end'>
+					<name>Métroville</name>
+					<wikiref>Accueil</wikiref>
+				</stop>
+			</branch>
+			<branch>
+				<stop>
+					<name>Carrières-sous-Ménopolis</name>
+					<wikiref>Accueil</wikiref>
+				</stop>
+			</branch>
+		</branches>
     </line>
 </svg_generation>
