@@ -64,12 +64,12 @@ def unidirectional_terminus(cx:int,cy:int,dx:int,direction:Literal['up','down'],
 
     return f'<polygon points="{tri}" fill="black"/>\n{terminus(cx,cy,dx,clr)}'
 
-def stop_name(cx:int,cy:int,step:int,txt:str,link:str,bold:bool,dx:int):
+def stop_name(cx:int,cy:int,step:int,txt:str,link:str,bold:bool):
     """
     Ajouter le nom de l'arrêt avec un lien vers sa page wiki
     """
     bx = 'font-weight:800;' if bold else ""
-    return f'<a href="https://idfmwiki.miraheze.org/wiki/{xml_characters(link)}" target="_self">\n<text x="{cx+step+dx}" y="{cy+6}" style="cursor:pointer;{bx}">{xml_characters(txt)}</text>\n</a>'
+    return f'<a href="https://idfmwiki.miraheze.org/wiki/{xml_characters(link)}" target="_self">\n<text x="{cx+step}" y="{cy+6}" style="cursor:pointer;{bx}">{xml_characters(txt)}</text>\n</a>'
 
 def crosssection(cx:int,cy:int,dx:int,clr:str,from_active:bool=False,to_active:bool=False):
     """
@@ -97,6 +97,7 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
     # GLOBAL PARAMETERS
     SVG = ""
     J = presety if presety is not None else 25
+    dTEXT = 45*(maxpb-1)
 
     # Disjonction de cas : <branch> ou <branches>
     for cmpx in range(len(line)):
@@ -110,18 +111,18 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
             if sub and cmpx%2==1:
                 dx+=15
             if not sub:
-                A,dj = unibranch_generator(line[cmpx],clr,dx,J)
+                A,dj = unibranch_generator(line[cmpx],clr,dx,J,dTEXT)
                 SVG = SVG+'\n'+A
                 J += dj
             else:
                 if cmpx==0:
-                    A,dj = unibranch_generator(line[0],clr,dx,J)
+                    A,dj = unibranch_generator(line[0],clr,dx,J,dTEXT)
                     SVG = SVG+'\n'+A
                 else: # donc cmpx==1
                     for i in range(len(line[0])):
                         A = tranch(15,J+i*50,clr,dx,None)
                         SVG = SVG+'\n'+A
-                    A,dj = unibranch_generator(line[1],clr,dx,J+len(line[0])*50)
+                    A,dj = unibranch_generator(line[1],clr,dx,J+len(line[0])*50,dTEXT)
                     SVG = SVG+'\n'+A
                     J+=dj
 
@@ -170,14 +171,14 @@ def save_file(SVG:str,output:str,J:int):
     return
 
 
-def unibranch_generator(branch:Element[str],clr:str,dx:int,j:int):
+def unibranch_generator(branch:Element[str],clr:str,dx:int,j:int,dTEXT:int):
     """
     Génère une seule branche pour le thème BUS
     """
     # Paramètres
     BUILD = ""
     i = 15
-    TEXT_STEP = 15
+    TEXT_STEP = 15+dTEXT
 
     # Corps
     for x in range(len(branch)):
@@ -206,7 +207,7 @@ def unibranch_generator(branch:Element[str],clr:str,dx:int,j:int):
             BUILD = BUILD + stop(i,j,dx)
         else:
             BUILD = BUILD + unidirectional_stop(i,j,dx,uni)
-        BUILD = BUILD + '\n' + stop_name(i,j,TEXT_STEP,stopx_name,stopx_ref,term,dx)
+        BUILD = BUILD + '\n' + stop_name(i,j,TEXT_STEP,stopx_name,stopx_ref,term)
 
         j+=50
 
