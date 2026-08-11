@@ -90,7 +90,7 @@ def crosssection(cx:int,cy:int,dx:int,clr:str,from_active:bool=False,to_active:b
 
 
 #### CONTROLE
-def bus_generator(line:Element[str],clr:str,output:str,maxpb:int):
+def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=True):
     """
     Génère le SVG selon le thème BUS
     """
@@ -98,21 +98,57 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int):
     SVG = ""
     J = 25
 
-    # Disjonction de cas : <branch> ou <branches> ou <cross>
+    # Disjonction de cas : <branch> ou <branches>
     for cmpx in range(len(line)):
         cpmxtag = line[cmpx].tag
 
         # balise <branch>
         if cpmxtag == 'branch':
-            A,dj = unibranch_generator(line[cmpx],clr,0,J)
+            dx = 15*(maxpb-1)
+            if sub and cmpx%2==0:
+                dx-=8
+            if sub and cmpx%2==1:
+                dx+=8
+            A,dj = unibranch_generator(line[cmpx],clr,dx,J)
             SVG = SVG+'\n'+A
             J += dj
+
+        # balise <branches>
+        elif cpmxtag == "branches":
+
+            # la bifurcation
+            if cmpx!=0 and line[cmpx-1].tag=='branch':
+                dx = 15*(maxpb-1)
+                A = crosssection(0,J,dx,clr,to_active=True)
+                SVG = SVG+A
+                J+=20
+            elif cmpx!=len(line)-1 and line[cmpx+1].tag=='branch':
+                dx = 15*(maxpb-1)
+                A = crosssection(0,J,dx,clr,from_active=True)
+                SVG = SVG+A
+                J+=20
+            else:
+                raise AttributeError("A <branches> tag cannot follow another <branches> tag")
+            # les sous-branches
+            A,dj = bus_generator(line[cmpx],clr,output,maxpb,False)
+            SVG = SVG+A
+            J+=dj
 
         # balise non reconnue
         else:
             raise AttributeError(f"Unrecognised <{cpmxtag}> tag !")
 
+    # enregistrement
+    if sub:
+        save_file(SVG,output,J)
+        return (None,None)
+    else: # cas des sous-branches
+        return (SVG,J)
 
+def save_file(SVG:str,output:str,J:int):
+    """
+    S'occupe de l'enregistrement du fichier .svg
+    """
     # Headers
     HEADER1 = '<?xml version="1.0" encoding="UTF-8"?>\n'
     HEADER2 = f'<svg width="500" height="{J+10}" xmlns="http://www.w3.org/2000/svg">\n<style>\ntext{{\n\tfont-family: sans-serif;\n}}\n</style>'
