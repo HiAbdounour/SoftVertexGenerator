@@ -5,6 +5,7 @@ Contient :
 - le parseur : xmlparser()
 - le shifteur : ???
 - les constantes : couleurs et caractères d'esquive
+- quelques utils
 
 """
 

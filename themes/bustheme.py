@@ -5,19 +5,8 @@ Le thème utilisé pour les lignes de bus.
 from typing import Literal
 from xml.etree.ElementTree import Element
 from core.constants import CHARACTERS
+from core.xmlutils import xml_characters
 
-# Un util
-def xml_characters(txt:str):
-    """
-    Remplace les caractères UTF-8 en trucs &#xxx; compréhensibles en XML
-    """
-    txtS = list(txt)
-    for i in range(len(txtS)):
-        if txtS[i] in CHARACTERS.keys():
-            txtS[i] = CHARACTERS[txtS[i]]
-    return "".join(txtS)
-
-# fin de l'util
 
 def stop(cx:int,cy:int,dx:int):
     """
