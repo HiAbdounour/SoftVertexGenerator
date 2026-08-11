@@ -90,7 +90,7 @@ def crosssection(cx:int,cy:int,dx:int,clr:str,from_active:bool=False,to_active:b
 
 
 #### CONTROLE
-def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,presety:int|None=None):
+def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,presety:int|None=None,way:Literal["from",'to']|None=None):
     """
     Génère le SVG selon le thème BUS
     """
@@ -115,36 +115,55 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
                 SVG = SVG+'\n'+A
                 J += dj
             else:
-                if cmpx==0:
-                    A,dj = unibranch_generator(line[0],clr,dx,J,dTEXT)
+                if (cmpx==0 and way=='to') or (cmpx==1 and way=='from'):
+                    cur = 0 if way=='to' else 1
+                    A,dj = unibranch_generator(line[cur],clr,dx,J,dTEXT)
                     SVG = SVG+'\n'+A
-                else: # donc cmpx==1
-                    for i in range(len(line[0])):
+                    if way=='from':
+                        J+=len(line[cur])*50
+                elif (cmpx==1 and way=='to') or (cmpx==0 and way=='from'):
+                    cur = 1 if way=='to' else 0
+                    oth = (cur+1)%2
+                    if way=='from':
+                        A,dj = unibranch_generator(line[cur],clr,dx,J,dTEXT)
+                        SVG = SVG+'\n'+A
+                        J+=dj-25 # why?
+                    for i in range(len(line[oth])):
                         A = tranch(15,J+i*50,clr,dx,None)
                         SVG = SVG+'\n'+A
-                    A,dj = unibranch_generator(line[1],clr,dx,J+len(line[0])*50,dTEXT)
-                    SVG = SVG+'\n'+A
-                    J+=dj
+                    if way=='to':
+                        A,dj = unibranch_generator(line[cur],clr,dx,J+len(line[oth])*50,dTEXT)
+                        SVG = SVG+'\n'+A
+                        J+=dj
+                else:
+                    if way in ['from','to']:
+                        raise AttributeError(f"A <branches> tag can only have 2 children, not {len(line)}")
+                    raise AttributeError(f'{way} is an invalid value for way. Can only accept "from" or "to".')
 
         # balise <branches>
         elif cpmxtag == "branches":
 
             # la bifurcation
+            dx = 15*(maxpb-1)-1
             if cmpx!=0 and line[cmpx-1].tag=='branch':
-                dx = 15*(maxpb-1)-1
                 A = crosssection(0,J-30,dx,clr,to_active=True)
+                way = 'to'
                 SVG = SVG+A
+                J-=6
             elif cmpx!=len(line)-1 and line[cmpx+1].tag=='branch':
-                dx = 15*(maxpb-1)
-                A = crosssection(0,J,dx,clr,from_active=True)
-                SVG = SVG+A
+                # la crosssection vient plus loin
+                way = 'from'
             else:
                 raise AttributeError("A <branches> tag cannot follow another <branches> tag")
-            J-=6 # correction
             # les sous-branches
-            A,dj = bus_generator(line[cmpx],clr,output,maxpb,True,J)
-            SVG = SVG+A
+            A,dj = bus_generator(line[cmpx],clr,output,maxpb,True,J,way=way)
+            SVG = SVG+'\n'+A
             J+=dj
+            # crosssection pour les "from"
+            if cmpx!=len(line)-1 and line[cmpx+1].tag=='branch':
+                A = crosssection(0,J-50,dx,clr,from_active=True)
+                SVG = SVG+'\n'+A
+                J-=6
 
         # balise non reconnue
         else:
