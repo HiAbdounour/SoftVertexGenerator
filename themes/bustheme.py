@@ -90,7 +90,7 @@ def crosssection(cx:int,cy:int,dx:int,clr:str,from_active:bool=False,to_active:b
 
 
 #### CONTROLE
-def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=True):
+def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False):
     """
     Génère le SVG selon le thème BUS
     """
@@ -106,9 +106,9 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=True):
         if cpmxtag == 'branch':
             dx = 15*(maxpb-1)
             if sub and cmpx%2==0:
-                dx-=8
+                dx-=15
             if sub and cmpx%2==1:
-                dx+=8
+                dx+=15
             A,dj = unibranch_generator(line[cmpx],clr,dx,J)
             SVG = SVG+'\n'+A
             J += dj
@@ -119,18 +119,16 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=True):
             # la bifurcation
             if cmpx!=0 and line[cmpx-1].tag=='branch':
                 dx = 15*(maxpb-1)
-                A = crosssection(0,J,dx,clr,to_active=True)
-                SVG = SVG+A
-                J+=20
-            elif cmpx!=len(line)-1 and line[cmpx+1].tag=='branch':
-                dx = 15*(maxpb-1)
                 A = crosssection(0,J,dx,clr,from_active=True)
                 SVG = SVG+A
-                J+=20
+            elif cmpx!=len(line)-1 and line[cmpx+1].tag=='branch':
+                dx = 15*(maxpb-1)
+                A = crosssection(0,J,dx,clr,to_active=True)
+                SVG = SVG+A
             else:
                 raise AttributeError("A <branches> tag cannot follow another <branches> tag")
             # les sous-branches
-            A,dj = bus_generator(line[cmpx],clr,output,maxpb,False)
+            A,dj = bus_generator(line[cmpx],clr,output,maxpb,True)
             SVG = SVG+A
             J+=dj
 
@@ -139,7 +137,7 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=True):
             raise AttributeError(f"Unrecognised <{cpmxtag}> tag !")
 
     # enregistrement
-    if sub:
+    if not sub:
         save_file(SVG,output,J)
         return (None,None)
     else: # cas des sous-branches
