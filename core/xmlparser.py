@@ -14,7 +14,7 @@ def xmlparser(input_file:str):
         # récupère l'output
         output = root.get('output')
         if output is None:
-            output = "output.xml"
+            output = "output.svg"
 
         # récupère le thème
         theme = root.get('type')
