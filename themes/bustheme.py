@@ -126,12 +126,16 @@ def unibranch_generator(branch:Element[str],clr:str,output:str,dx:int,j:int):
     # Corps
     for x in range(len(branch)):
         stopx = branch[x]
-        stopx_name = stopx[0].text
-        stopx_ref = stopx[1].text
+        stopx_name = stopx.find('.//name')
+        stopx_ref = stopx.find('.//wikiref')
         if stopx_ref is None or stopx_name is None:
-            raise Warning(f"Missing info for stop number {x}")
+            raise Warning(f"Missing info for stop number {x+1}")
+        stopx_name = stopx_name.text
+        stopx_ref = stopx_ref.text
+        if stopx_ref is None or stopx_name is None:
+            raise Warning(f"Missing info for stop number {x+1}")
         if ' ' in list(stopx_ref):
-            raise Warning(f"Link for stop number {x+1} contain spaces. Perhaps you swapped name and wikiref tags")
+            raise Warning(f"Link for stop number {x+1} contain spaces. Make sure wikiref tags respect the MediaWiki links syntax")
         stopx_curz = stopx.get('curz')
 
         BUILD = BUILD + '\n' + tranch(i,j,clr,dx,stopx_curz) + '\n'
