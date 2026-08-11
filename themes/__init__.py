@@ -8,6 +8,6 @@ BUS - en cours de construction
 VELO - à venir
 """
 
-from bustheme import bus_generator
+from .bustheme import bus_generator
 
-__all__ = [bus_generator]
+__all__ = ['bus_generator']
