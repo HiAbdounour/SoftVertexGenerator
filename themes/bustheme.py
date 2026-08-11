@@ -113,7 +113,7 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
             if not sub:
                 A,dj = unibranch_generator(line[cmpx],clr,dx,J,dTEXT)
                 SVG = SVG+'\n'+A
-                J += dj
+                J = dj+25
             else:
                 if (cmpx==0 and way=='to') or (cmpx==1 and way=='from'):
                     cur = 0 if way=='to' else 1
