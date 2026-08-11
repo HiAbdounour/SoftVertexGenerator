@@ -1,7 +1,7 @@
 import xml.etree.ElementTree as xET
 from constants import IDFM_COLORS
 # les thèmes
-from bustheme import bus_generator
+from themes import *
 
 
 def xmlparser(input_file:str):
@@ -40,6 +40,19 @@ def xmlparser(input_file:str):
 
         # récupère l'embedding
         base = root[0]
+
+
+        ###" UNIQUEMENT POUR LA PRODUCTION (CONSERVATION HORS BRACKET)"
+        try:
+            xput = root.get("savetime")
+            if xput is not None:
+                with open(input_file,'r',encoding='utf-8') as file:
+                    data = file.read()
+                rahs = output.split('.')
+                with open(xput+rahs[0]+'.xml','w',encoding='utf-8') as file:
+                    file.write(data)
+        except:
+            pass
 
     except FileExistsError as f3err:
         raise f3err

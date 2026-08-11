@@ -4,7 +4,7 @@ Le thème utilisé pour les lignes de bus.
 """
 from typing import Literal
 from xml.etree.ElementTree import Element
-from constants import CHARACTERS
+from core.constants import CHARACTERS
 
 # Un util
 def xml_characters(txt:str):
@@ -113,30 +113,7 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int):
     for cmpx in range(len(line)):
         cpmxtag = line[cmpx].tag
 
-# BON EUH LE WORKFLOW DE LA PLUSIEURS BRANCHES NE MARCHE PAS DU TOUT FLOP TOTAL !
-
-        # cas d'une seule branche
-        if cpmxtag=="branch":
-            if maxpb==1:
-                dx=0
-            else:
-                dx = 16 + (maxpb-1)*32 # pas optimisé pour formes complexes
-            APPEND,J = unibranch_generator(line[cmpx],clr,output,dx,J) 
-            SVG = SVG+APPEND
-
-        # cas de plusieurs branches en parallèle
-        elif cpmxtag=="branches":
-            pass
-            J+=20
-
-        # cas d'une séparation
-        elif cpmxtag=="cross":
-            pass
-
-        # INVALIDE
-        else:
-            raise NameError(f"The tag <{cpmxtag}> is NOT allowed.")
-
+        pass
 
     # Headers
     HEADER1 = '<?xml version="1.0" encoding="UTF-8"?>\n'
@@ -165,7 +142,7 @@ def unibranch_generator(branch:Element[str],clr:str,output:str,dx:int,j:int):
         if stopx_ref is None or stopx_name is None:
             raise Warning(f"Missing info for stop number {x}")
         if ' ' in list(stopx_ref):
-            raise Warning(f"Link for stop number {x} contain spaces. Perhaps you swapped name and wikiref tags")
+            raise Warning(f"Link for stop number {x+1} contain spaces. Perhaps you swapped name and wikiref tags")
         stopx_curz = stopx.get('curz')
 
         BUILD = BUILD + '\n' + tranch(i,j,clr,dx,stopx_curz) + '\n'
