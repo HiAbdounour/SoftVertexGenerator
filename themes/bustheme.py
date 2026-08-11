@@ -109,9 +109,21 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False)
                 dx-=15
             if sub and cmpx%2==1:
                 dx+=15
-            A,dj = unibranch_generator(line[cmpx],clr,dx,J)
-            SVG = SVG+'\n'+A
-            J += dj
+            if not sub:
+                A,dj = unibranch_generator(line[cmpx],clr,dx,J)
+                SVG = SVG+'\n'+A
+                J += dj
+            else:
+                if cmpx==0:
+                    A,dj = unibranch_generator(line[0],clr,dx,J)
+                    SVG = SVG+'\n'+A
+                else: # donc cmpx==1
+                    for i in range(len(line[0])):
+                        A = tranch(15,J+i*50,clr,dx,None)
+                        SVG = SVG+'\n'+A
+                    A,dj = unibranch_generator(line[1],clr,dx,J+len(line[0])*50)
+                    SVG = SVG+'\n'+A
+                    J+=dj
 
         # balise <branches>
         elif cpmxtag == "branches":
