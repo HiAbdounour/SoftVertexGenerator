@@ -79,9 +79,9 @@ def crosssection(cx:int,cy:int,dx:int,clr:str,from_active:bool=False,to_active:b
     """
     AX = cx-7+dx
     AY = cy
-    if from_active:
+    if to_active:
         ddd = -1
-    elif to_active:
+    elif from_active:
         ddd = 1
     else:
         raise RuntimeError('from or to crosssection ?')
@@ -90,13 +90,13 @@ def crosssection(cx:int,cy:int,dx:int,clr:str,from_active:bool=False,to_active:b
 
 
 #### CONTROLE
-def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False):
+def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,presety:int|None=None):
     """
     Génère le SVG selon le thème BUS
     """
     # GLOBAL PARAMETERS
     SVG = ""
-    J = 25
+    J = presety if presety is not None else 25
 
     # Disjonction de cas : <branch> ou <branches>
     for cmpx in range(len(line)):
@@ -130,17 +130,18 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False)
 
             # la bifurcation
             if cmpx!=0 and line[cmpx-1].tag=='branch':
-                dx = 15*(maxpb-1)
-                A = crosssection(0,J,dx,clr,from_active=True)
+                dx = 15*(maxpb-1)-1
+                A = crosssection(0,J-30,dx,clr,to_active=True)
                 SVG = SVG+A
             elif cmpx!=len(line)-1 and line[cmpx+1].tag=='branch':
                 dx = 15*(maxpb-1)
-                A = crosssection(0,J,dx,clr,to_active=True)
+                A = crosssection(0,J,dx,clr,from_active=True)
                 SVG = SVG+A
             else:
                 raise AttributeError("A <branches> tag cannot follow another <branches> tag")
+            J-=6 # correction
             # les sous-branches
-            A,dj = bus_generator(line[cmpx],clr,output,maxpb,True)
+            A,dj = bus_generator(line[cmpx],clr,output,maxpb,True,J)
             SVG = SVG+A
             J+=dj
 
