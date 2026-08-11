@@ -3,7 +3,7 @@ Core components du Soft Vertex Generator
 
 Contient :
 - le parseur : xmlparser()
-- le shifteur : ???
+- le shifteur : imap_converter()
 - quelques utils
 
 """
