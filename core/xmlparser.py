@@ -65,7 +65,8 @@ def xmlparser(input_file:str):
     
     else:
         # la GÉNÉRATION
-        if theme=='bus':        
+        if theme=='BUS':        
             bus_generator(base,clr,output,maxpb)
+            return output
         else:
             raise AttributeError(f"Theme {theme} is not allowed")
