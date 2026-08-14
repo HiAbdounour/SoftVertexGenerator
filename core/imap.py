@@ -1,6 +1,6 @@
 import xml.etree.ElementTree as xET
 
-def imap_converter(filename:str):
+def imap_converter(filename:str,saving:bool):
     """
     Convertit le plan SVG généré en un couple (plan PNG,ImageMap) plus facilement compatible
     avec MediaWiki
@@ -19,6 +19,11 @@ def imap_converter(filename:str):
         # conversion en ImageMap
         imap = imap_builder(root,filename)
 
+        # sauvegarde
+        if saving:
+            with open(f"ImageMap_{filename}.txt",'w',encoding='utf-8') as file:
+                file.write(imap)
+
     except BufferError:
         errflag = True
         raise FileExistsError("A problem occured with the file.\nPlease remember to not alter the generated SVG while the process is still running.")
@@ -29,7 +34,10 @@ def imap_converter(filename:str):
 
     else:
         print(f"\nFichier PNG prêt.\nVoici votre ImageMap :")
-        print(imap)
+        if saving:
+            print(f">>> ImageMap sauvegardé : ImageMap_{filename}.txt")
+        else:
+            print(imap)
 
     finally:
         if errflag:
