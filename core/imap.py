@@ -21,7 +21,7 @@ def imap_converter(filename:str,saving:bool):
 
         # sauvegarde
         if saving:
-            with open(f"ImageMap_{filename}.txt",'w',encoding='utf-8') as file:
+            with open(f"ImageMap_{filename.split('.')[0]}.txt",'w',encoding='utf-8') as file:
                 file.write(imap)
 
     except BufferError:
@@ -35,7 +35,7 @@ def imap_converter(filename:str,saving:bool):
     else:
         print(f"\nFichier PNG prêt.\nVoici votre ImageMap :")
         if saving:
-            print(f">>> ImageMap sauvegardé : ImageMap_{filename}.txt")
+            print(f">>> ImageMap sauvegardé : ImageMap_{filename.split('.')[0]}.txt")
         else:
             print(imap)
 
