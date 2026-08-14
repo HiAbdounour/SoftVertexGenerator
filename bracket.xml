@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xml>
-<svg_generation type="bus" color="magenta" maxpb="2">
+<svg_generation type="BUS" color="magenta" maxpb="2">
     <line>
 		<branches>
 			<branch>

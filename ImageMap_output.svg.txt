@@ -1,0 +1,27 @@
+<imagemap>
+File:output.png|alt=Plan pour {PAGENAME}
+
+circle 15 25 8 [[Accueil|Pilier des Sentinelles]]
+rect 75 31 500 43 [[Accueil|Pilier des Sentinelles]]
+circle 15 75 8 [[Accueil|Rangée des Valentons]]
+rect 75 81 500 93 [[Accueil|Rangée des Valentons]]
+circle 15 125 8 [[Accueil|Les Valentons]]
+rect 75 131 500 143 [[Accueil|Les Valentons]]
+circle 45 175 8 [[Accueil|Limais]]
+rect 75 181 500 193 [[Accueil|Limais]]
+circle 45 225 8 [[Accueil|Queretz]]
+rect 75 231 500 243 [[Accueil|Queretz]]
+circle 30 294 8 [[Accueil|La Rochelle-des-Bois]]
+rect 75 300 500 312 [[Accueil|La Rochelle-des-Bois]]
+circle 30 344 8 [[Accueil|Pirène]]
+rect 75 350 500 362 [[Accueil|Pirène]]
+circle 30 394 8 [[Accueil|Grosland-sous-Mer]]
+rect 75 400 500 412 [[Accueil|Grosland-sous-Mer]]
+circle 30 444 8 [[Accueil|Friandville Centre]]
+rect 75 450 500 462 [[Accueil|Friandville Centre]]
+circle 15 513 8 [[Accueil|Friandville Les Grands]]
+rect 75 519 500 531 [[Accueil|Friandville Les Grands]]
+circle 15 563 8 [[Accueil|Métroville]]
+rect 75 569 500 581 [[Accueil|Métroville]]
+circle 45 613 8 [[Accueil|Carrières-sous-Ménopolis]]
+rect 75 619 500 631 [[Accueil|Carrières-sous-Ménopolis]]</imagemap>
