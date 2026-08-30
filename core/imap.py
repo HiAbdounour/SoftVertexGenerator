@@ -1,5 +1,5 @@
 import xml.etree.ElementTree as xET
-from utils import imap_characters
+from core.utils import imap_characters
 
 def imap_converter(filename:str,saving:bool):
     """
