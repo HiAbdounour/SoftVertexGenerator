@@ -216,3 +216,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Docs generation - espace make files
+make.*
+Makefile
+
+# Remove Sphinx Builds
+# build/ (already removed above)
