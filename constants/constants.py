@@ -22,7 +22,7 @@ IDFM_COLORS = {
 }
 
 # ESCAPING CHARACTERS
-CHARACTERS = {
+XML_ESCAPING = {
     "à": "&#224;",
     "á": "&#225;",
     "â": "&#226;",
@@ -85,3 +85,4 @@ CHARACTERS = {
     "–": "&#8211;",
     "/": "&#47;"
 }
+MEDIAWIKI_ESCAPING = {v:k for k,v in XML_ESCAPING.items()}

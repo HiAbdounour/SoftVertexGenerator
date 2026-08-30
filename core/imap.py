@@ -1,4 +1,5 @@
 import xml.etree.ElementTree as xET
+from utils import imap_characters
 
 def imap_converter(filename:str,saving:bool):
     """
@@ -89,7 +90,7 @@ def imap_builder(svg:xET.Element,filename:str):
             if href is None or txt is None or txt_dim[0] is None or txt_dim[1] is None:
                 raise AttributeError("Are you sure the SVG file was not altered ?")
             CORPUS = CORPUS+f' [[{href.split('/')[-1]}|{txt}]]'
-            CORPUS = CORPUS+f'\nrect {txt_dim[0]} {int(txt_dim[1])-h} 500 {int(txt_dim[1])+h} [[{href.split('/')[-1]}|{txt}]]'
+            CORPUS = CORPUS+f'\nrect {txt_dim[0]} {int(txt_dim[1])-h} 500 {int(txt_dim[1])+h} [[{imap_characters(href.split('/')[-1])}|{imap_characters(txt)}]]'
         else:
             i+=1
 

@@ -4,8 +4,7 @@ Le thème utilisé pour les lignes de bus.
 """
 from typing import Literal
 from xml.etree.ElementTree import Element
-from constants.constants import CHARACTERS
-from core.xmlutils import xml_characters
+from core.utils import xml_characters
 
 
 def stop(cx:int,cy:int,dx:int):
