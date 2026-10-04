@@ -179,16 +179,19 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
             loop1 = line[cmpx][0]
             dx = 15*(maxpb-1)-15
             A,dj = unibranch_generator(loop1,clr,dx,J,dTEXT)
-            #// empty! pour la suite
             SVG = SVG+'\n'+A
-            J = dj+25
+            for i in range(len(line[cmpx][1])):
+                A = tranch(15,J+i*50,clr,dx,None)
+                SVG = SVG+'\n'+A
 
             # seconde balise :: ATTENTION ! <loopup><loopdown> et <loopdown><loopup> donnent des résultats différents !
             loop2 = line[cmpx][1]
             dx = 15*(maxpb-1)+15
             A,dj = unibranch_generator(line[cmpx][0],clr,dx,J,dTEXT)
-            #// empty! pour le début
             SVG = SVG+'\n'+A
+            for i in range(len(line[cmpx][1])):
+                A = tranch(15,J+i*50,clr,dx,None)
+                SVG = SVG+'\n'+A
             J = dj+25
 
             # crosssection "from"
