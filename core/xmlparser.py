@@ -41,6 +41,10 @@ def xmlparser(input_file:str):
         # récupère l'embedding
         base = root[0]
 
+        # recherche de la largeur du SVG
+        cwidth = root.get("cwidth")
+        if cwidth is None:
+            cwidth = 500
 
         ###" UNIQUEMENT POUR LA PRODUCTION (CONSERVATION HORS BRACKET)"
         try:
@@ -66,7 +70,7 @@ def xmlparser(input_file:str):
     else:
         # la GÉNÉRATION
         if theme=='BUS':        
-            bus_generator(base,clr,output,maxpb)
+            bus_generator(base,clr,output,maxpb,width=int(cwidth))
             return output
         else:
             raise AttributeError(f"Theme {theme} is not allowed")

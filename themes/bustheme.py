@@ -89,7 +89,7 @@ def crosssection(cx:int,cy:int,dx:int,clr:str,from_active:bool=False,to_active:b
 
 
 #### CONTROLE
-def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,presety:int|None=None,way:Literal["from",'to']|None=None):
+def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,presety:int|None=None,way:Literal["from",'to']|None=None,width:int=500):
     """
     Génère le SVG selon le thème BUS
     """
@@ -214,18 +214,18 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
 
     # enregistrement
     if not sub:
-        save_file(SVG,output,J)
+        save_file(SVG,output,J,width)
         return (None,None)
     else: # cas des sous-branches
         return (SVG,J)
 
-def save_file(SVG:str,output:str,J:int):
+def save_file(SVG:str,output:str,J:int,width:int):
     """
     S'occupe de l'enregistrement du fichier .svg
     """
     # Headers
     HEADER1 = '<?xml version="1.0" encoding="UTF-8"?>\n'
-    HEADER2 = f'<svg width="500" height="{J+10}" xmlns="http://www.w3.org/2000/svg">\n<style>\ntext{{\n\tfont-family: sans-serif;\n}}\n</style>'
+    HEADER2 = f'<svg width="{width}" height="{J+10}" xmlns="http://www.w3.org/2000/svg">\n<style>\ntext{{\n\tfont-family: sans-serif;\n}}\n</style>'
 
     # Enregistrement
     with open(output,"w") as svgfile:
