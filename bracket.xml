@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xml>
-<svg_generation type="BUS" color="magenta" maxpb="3">
+<svg_generation type="BUS" color="magenta" maxpb="2">
     <line>
 		<branches>
 			<branch>
-				<stop terminus='true' curz='start'>
+				<stop terminus='true' isOp='true' curz='start'>
 					<name>Pilier des Sentinelles</name>
 					<wikiref>Accueil</wikiref>
 				</stop>
-				<stop>
+				<stop terminus='true'>
 					<name>Rangée des Valentons</name>
 					<wikiref>Accueil</wikiref>
 				</stop>

@@ -44,13 +44,14 @@ def tranch(cx:int,cy:int,clr:str,dx:int,curz:Literal["start","end"]|None):
         dy = -25
     return f'<rect width="14" height="{val}" x="{cx-7+dx}" y="{cy+dy}" fill="{clr}"/>'
 
-def terminus(cx:int,cy:int,dx:int,clr:str):
+def terminus(cx:int,cy:int,dx:int,clr:str,isOp:bool):
     """
     Un terminus de ligne de bus
     """
-    return f'<circle cx="{cx+dx}" cy="{cy}" r="8" fill="white" stroke-width="1" stroke="black"/>\n<circle cx="{cx+dx}" cy="{cy}" r="5" fill="{clr}" stroke-width="1" stroke="black"/>'
+    color = "#9e9e9e" if isOp else clr
+    return f'<circle cx="{cx+dx}" cy="{cy}" r="8" fill="white" stroke-width="1" stroke="black"/>\n<circle cx="{cx+dx}" cy="{cy}" r="5" fill="{color}" stroke-width="1" stroke="black"/>'
 
-def unidirectional_terminus(cx:int,cy:int,dx:int,direction:Literal['up','down'],clr:str):
+def unidirectional_terminus(cx:int,cy:int,dx:int,direction:Literal['up','down'],clr:str,isOp:bool):
     """
     Un terminus desservi uniquement dans un seul sens
     """
@@ -61,7 +62,7 @@ def unidirectional_terminus(cx:int,cy:int,dx:int,direction:Literal['up','down'],
     else:
         raise ValueError(f"Direction {direction} is not valid. Please state 'up' or 'down' or use the terminus() function instead.")
 
-    return f'<polygon points="{tri}" fill="black"/>\n{terminus(cx,cy,dx,clr)}'
+    return f'<polygon points="{tri}" fill="black"/>\n{terminus(cx,cy,dx,clr,isOp)}'
 
 def stop_name(cx:int,cy:int,step:int,txt:str,link:str,bold:bool):
     """
@@ -264,10 +265,11 @@ def unibranch_generator(branch:Element[str],clr:str,dx:int,j:int,dTEXT:int,force
             uni = stopx.get("only")
         else:
             uni = forceway
+        op = stopx.get('isOp')=='true'
         if term and uni is None:
-            BUILD = BUILD + terminus(i,j,dx,clr)
+            BUILD = BUILD + terminus(i,j,dx,clr,op)
         elif term:
-            BUILD = BUILD + unidirectional_terminus(i,j,dx,uni,clr)
+            BUILD = BUILD + unidirectional_terminus(i,j,dx,uni,clr,op)
         elif uni is None:
             BUILD = BUILD + stop(i,j,dx)
         else:

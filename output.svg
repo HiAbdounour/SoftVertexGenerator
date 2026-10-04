@@ -7,141 +7,142 @@ text{
 </style>
 
 
-<rect width="14" height="25" x="23" y="25" fill="#A0006E"/>
-<circle cx="30" cy="25" r="8" fill="white" stroke-width="1" stroke="black"/>
-<circle cx="30" cy="25" r="5" fill="#A0006E" stroke-width="1" stroke="black"/>
+<rect width="14" height="25" x="8" y="25" fill="#A0006E"/>
+<circle cx="15" cy="25" r="8" fill="white" stroke-width="1" stroke="black"/>
+<circle cx="15" cy="25" r="5" fill="#9e9e9e" stroke-width="1" stroke="black"/>
 <a href="https://idfmwiki.miraheze.org/wiki/Accueil" target="_self">
-<text x="120" y="31" style="cursor:pointer;font-weight:800;">Pilier des Sentinelles</text>
+<text x="75" y="31" style="cursor:pointer;font-weight:800;">Pilier des Sentinelles</text>
 </a>
-<rect width="14" height="50" x="23" y="50" fill="#A0006E"/>
-<circle cx="30" cy="75" r="8" fill="white" stroke-width="1" stroke="black"/>
+<rect width="14" height="50" x="8" y="50" fill="#A0006E"/>
+<circle cx="15" cy="75" r="8" fill="white" stroke-width="1" stroke="black"/>
+<circle cx="15" cy="75" r="5" fill="#A0006E" stroke-width="1" stroke="black"/>
 <a href="https://idfmwiki.miraheze.org/wiki/Accueil" target="_self">
-<text x="120" y="81" style="cursor:pointer;">Rang&#233;e des Valentons</text>
+<text x="75" y="81" style="cursor:pointer;font-weight:800;">Rang&#233;e des Valentons</text>
 </a>
-<rect width="14" height="50" x="23" y="100" fill="#A0006E"/>
-<circle cx="30" cy="125" r="8" fill="white" stroke-width="1" stroke="black"/>
+<rect width="14" height="50" x="8" y="100" fill="#A0006E"/>
+<circle cx="15" cy="125" r="8" fill="white" stroke-width="1" stroke="black"/>
 <a href="https://idfmwiki.miraheze.org/wiki/Accueil" target="_self">
-<text x="120" y="131" style="cursor:pointer;">Les Valentons</text>
+<text x="75" y="131" style="cursor:pointer;">Les Valentons</text>
 </a>
-<rect width="14" height="50" x="23" y="150" fill="#A0006E"/>
-<polygon points="25,185 35,185 30,195" fill="black"/>
-<circle cx="30" cy="175" r="8" fill="white" stroke-width="1" stroke="black"/>
+<rect width="14" height="50" x="8" y="150" fill="#A0006E"/>
+<polygon points="10,185 20,185 15,195" fill="black"/>
+<circle cx="15" cy="175" r="8" fill="white" stroke-width="1" stroke="black"/>
 <a href="https://idfmwiki.miraheze.org/wiki/Accueil" target="_self">
-<text x="120" y="181" style="cursor:pointer;">Vall&#233;e de Valence</text>
+<text x="75" y="181" style="cursor:pointer;">Vall&#233;e de Valence</text>
 </a>
-<rect width="14" height="50" x="23" y="200" fill="#A0006E"/>
-<rect width="14" height="50" x="23" y="250" fill="#A0006E"/>
-<rect width="14" height="50" x="23" y="300" fill="#A0006E"/>
+<rect width="14" height="50" x="8" y="200" fill="#A0006E"/>
+<rect width="14" height="50" x="8" y="250" fill="#A0006E"/>
+<rect width="14" height="50" x="8" y="300" fill="#A0006E"/>
 
-<rect width="14" height="25" x="53" y="225" fill="#A0006E"/>
-<circle cx="60" cy="225" r="8" fill="white" stroke-width="1" stroke="black"/>
-<circle cx="60" cy="225" r="5" fill="#A0006E" stroke-width="1" stroke="black"/>
+<rect width="14" height="25" x="38" y="225" fill="#A0006E"/>
+<circle cx="45" cy="225" r="8" fill="white" stroke-width="1" stroke="black"/>
+<circle cx="45" cy="225" r="5" fill="#A0006E" stroke-width="1" stroke="black"/>
 <a href="https://idfmwiki.miraheze.org/wiki/Accueil" target="_self">
-<text x="120" y="231" style="cursor:pointer;font-weight:800;">Limais</text>
+<text x="75" y="231" style="cursor:pointer;font-weight:800;">Limais</text>
 </a>
-<rect width="14" height="50" x="53" y="250" fill="#A0006E"/>
-<circle cx="60" cy="275" r="8" fill="white" stroke-width="1" stroke="black"/>
+<rect width="14" height="50" x="38" y="250" fill="#A0006E"/>
+<circle cx="45" cy="275" r="8" fill="white" stroke-width="1" stroke="black"/>
 <a href="https://idfmwiki.miraheze.org/wiki/Accueil" target="_self">
-<text x="120" y="281" style="cursor:pointer;">Queretz</text>
+<text x="75" y="281" style="cursor:pointer;">Queretz</text>
 </a>
-<rect width="14" height="50" x="53" y="300" fill="#A0006E"/>
-<circle cx="60" cy="325" r="8" fill="white" stroke-width="1" stroke="black"/>
-<circle cx="60" cy="325" r="5" fill="#A0006E" stroke-width="1" stroke="black"/>
+<rect width="14" height="50" x="38" y="300" fill="#A0006E"/>
+<circle cx="45" cy="325" r="8" fill="white" stroke-width="1" stroke="black"/>
+<circle cx="45" cy="325" r="5" fill="#A0006E" stroke-width="1" stroke="black"/>
 <a href="https://idfmwiki.miraheze.org/wiki/Accueil" target="_self">
-<text x="120" y="331" style="cursor:pointer;font-weight:800;">Porte Froide</text>
+<text x="75" y="331" style="cursor:pointer;font-weight:800;">Porte Froide</text>
 </a>
-<polygon points="36,350 22,350 38,370 52,370 68,350 54,350 45,360" fill="#A0006E"/>
+<polygon points="21,350 7,350 23,370 37,370 53,350 39,350 30,360" fill="#A0006E"/>
 
-<rect width="14" height="50" x="38" y="369" fill="#A0006E"/>
-<circle cx="45" cy="394" r="8" fill="white" stroke-width="1" stroke="black"/>
+<rect width="14" height="50" x="23" y="369" fill="#A0006E"/>
+<circle cx="30" cy="394" r="8" fill="white" stroke-width="1" stroke="black"/>
 <a href="https://idfmwiki.miraheze.org/wiki/Accueil" target="_self">
-<text x="120" y="400" style="cursor:pointer;">La Rochelle-des-Bois</text>
+<text x="75" y="400" style="cursor:pointer;">La Rochelle-des-Bois</text>
 </a>
-<rect width="14" height="50" x="38" y="419" fill="#A0006E"/>
-<circle cx="45" cy="444" r="8" fill="white" stroke-width="1" stroke="black"/>
+<rect width="14" height="50" x="23" y="419" fill="#A0006E"/>
+<circle cx="30" cy="444" r="8" fill="white" stroke-width="1" stroke="black"/>
 <a href="https://idfmwiki.miraheze.org/wiki/Accueil" target="_self">
-<text x="120" y="450" style="cursor:pointer;">Pir&#232;ne</text>
-</a><polygon points="36,489 22,489 38,469 52,469 68,489 54,489 45,479" fill="#A0006E"/>
+<text x="75" y="450" style="cursor:pointer;">Pir&#232;ne</text>
+</a><polygon points="21,489 7,489 23,469 37,469 53,489 39,489 30,479" fill="#A0006E"/>
 
-<rect width="14" height="50" x="23" y="488" fill="#A0006E"/>
-<polygon points="25,523 35,523 30,533" fill="black"/>
-<circle cx="30" cy="513" r="8" fill="white" stroke-width="1" stroke="black"/>
+<rect width="14" height="50" x="8" y="488" fill="#A0006E"/>
+<polygon points="10,523 20,523 15,533" fill="black"/>
+<circle cx="15" cy="513" r="8" fill="white" stroke-width="1" stroke="black"/>
 <a href="https://idfmwiki.miraheze.org/wiki/Accueil" target="_self">
-<text x="120" y="519" style="cursor:pointer;">Fort-aux-froids</text>
+<text x="75" y="519" style="cursor:pointer;">Fort-aux-froids</text>
 </a>
-<rect width="14" height="50" x="23" y="538" fill="#A0006E"/>
-<polygon points="25,573 35,573 30,583" fill="black"/>
-<circle cx="30" cy="563" r="8" fill="white" stroke-width="1" stroke="black"/>
+<rect width="14" height="50" x="8" y="538" fill="#A0006E"/>
+<polygon points="10,573 20,573 15,583" fill="black"/>
+<circle cx="15" cy="563" r="8" fill="white" stroke-width="1" stroke="black"/>
 <a href="https://idfmwiki.miraheze.org/wiki/Accueil" target="_self">
-<text x="120" y="569" style="cursor:pointer;">Galaxie des Firmaments</text>
+<text x="75" y="569" style="cursor:pointer;">Galaxie des Firmaments</text>
 </a>
-<rect width="14" height="50" x="23" y="588" fill="#A0006E"/>
-<rect width="14" height="50" x="23" y="638" fill="#A0006E"/>
-<rect width="14" height="50" x="23" y="688" fill="#A0006E"/>
-<rect width="14" height="50" x="53" y="488" fill="#A0006E"/>
-<rect width="14" height="50" x="53" y="538" fill="#A0006E"/>
+<rect width="14" height="50" x="8" y="588" fill="#A0006E"/>
+<rect width="14" height="50" x="8" y="638" fill="#A0006E"/>
+<rect width="14" height="50" x="8" y="688" fill="#A0006E"/>
+<rect width="14" height="50" x="38" y="488" fill="#A0006E"/>
+<rect width="14" height="50" x="38" y="538" fill="#A0006E"/>
 
-<rect width="14" height="50" x="53" y="588" fill="#A0006E"/>
-<polygon points="55,603 65,603 60,593" fill="black"/>
-<circle cx="60" cy="613" r="8" fill="white" stroke-width="1" stroke="black"/>
+<rect width="14" height="50" x="38" y="588" fill="#A0006E"/>
+<polygon points="40,603 50,603 45,593" fill="black"/>
+<circle cx="45" cy="613" r="8" fill="white" stroke-width="1" stroke="black"/>
 <a href="https://idfmwiki.miraheze.org/wiki/Accueil" target="_self">
-<text x="120" y="619" style="cursor:pointer;">Plage Rouge</text>
+<text x="75" y="619" style="cursor:pointer;">Plage Rouge</text>
 </a>
-<rect width="14" height="50" x="53" y="638" fill="#A0006E"/>
-<polygon points="55,653 65,653 60,643" fill="black"/>
-<circle cx="60" cy="663" r="8" fill="white" stroke-width="1" stroke="black"/>
-<circle cx="60" cy="663" r="5" fill="#A0006E" stroke-width="1" stroke="black"/>
+<rect width="14" height="50" x="38" y="638" fill="#A0006E"/>
+<polygon points="40,653 50,653 45,643" fill="black"/>
+<circle cx="45" cy="663" r="8" fill="white" stroke-width="1" stroke="black"/>
+<circle cx="45" cy="663" r="5" fill="#A0006E" stroke-width="1" stroke="black"/>
 <a href="https://idfmwiki.miraheze.org/wiki/Accueil" target="_self">
-<text x="120" y="669" style="cursor:pointer;font-weight:800;">Plateau des Mers Sal&#233;es</text>
+<text x="75" y="669" style="cursor:pointer;font-weight:800;">Plateau des Mers Sal&#233;es</text>
 </a>
-<rect width="14" height="50" x="53" y="688" fill="#A0006E"/>
-<polygon points="55,703 65,703 60,693" fill="black"/>
-<circle cx="60" cy="713" r="8" fill="white" stroke-width="1" stroke="black"/>
+<rect width="14" height="50" x="38" y="688" fill="#A0006E"/>
+<polygon points="40,703 50,703 45,693" fill="black"/>
+<circle cx="45" cy="713" r="8" fill="white" stroke-width="1" stroke="black"/>
 <a href="https://idfmwiki.miraheze.org/wiki/Accueil" target="_self">
-<text x="120" y="719" style="cursor:pointer;">Maxiville-sur-Mer</text>
+<text x="75" y="719" style="cursor:pointer;">Maxiville-sur-Mer</text>
 </a>
-<polygon points="36,738 22,738 38,758 52,758 68,738 54,738 45,748" fill="#A0006E"/>
+<polygon points="21,738 7,738 23,758 37,758 53,738 39,738 30,748" fill="#A0006E"/>
 
-<rect width="14" height="50" x="38" y="757" fill="#A0006E"/>
-<circle cx="45" cy="782" r="8" fill="white" stroke-width="1" stroke="black"/>
+<rect width="14" height="50" x="23" y="757" fill="#A0006E"/>
+<circle cx="30" cy="782" r="8" fill="white" stroke-width="1" stroke="black"/>
 <a href="https://idfmwiki.miraheze.org/wiki/Accueil" target="_self">
-<text x="120" y="788" style="cursor:pointer;">Grosland-sous-Mer</text>
+<text x="75" y="788" style="cursor:pointer;">Grosland-sous-Mer</text>
 </a>
-<rect width="14" height="50" x="38" y="807" fill="#A0006E"/>
-<circle cx="45" cy="832" r="8" fill="white" stroke-width="1" stroke="black"/>
+<rect width="14" height="50" x="23" y="807" fill="#A0006E"/>
+<circle cx="30" cy="832" r="8" fill="white" stroke-width="1" stroke="black"/>
 <a href="https://idfmwiki.miraheze.org/wiki/Accueil" target="_self">
-<text x="120" y="838" style="cursor:pointer;">Friandville Centre</text>
-</a><polygon points="36,877 22,877 38,857 52,857 68,877 54,877 45,867" fill="#A0006E"/>
+<text x="75" y="838" style="cursor:pointer;">Friandville Centre</text>
+</a><polygon points="21,877 7,877 23,857 37,857 53,877 39,877 30,867" fill="#A0006E"/>
 
 
-<rect width="14" height="50" x="23" y="876" fill="#A0006E"/>
-<circle cx="30" cy="901" r="8" fill="white" stroke-width="1" stroke="black"/>
+<rect width="14" height="50" x="8" y="876" fill="#A0006E"/>
+<circle cx="15" cy="901" r="8" fill="white" stroke-width="1" stroke="black"/>
 <a href="https://idfmwiki.miraheze.org/wiki/Accueil" target="_self">
-<text x="120" y="907" style="cursor:pointer;">Friandville Les Grands</text>
+<text x="75" y="907" style="cursor:pointer;">Friandville Les Grands</text>
 </a>
-<rect width="14" height="25" x="23" y="926" fill="#A0006E"/>
-<circle cx="30" cy="951" r="8" fill="white" stroke-width="1" stroke="black"/>
-<circle cx="30" cy="951" r="5" fill="#A0006E" stroke-width="1" stroke="black"/>
+<rect width="14" height="25" x="8" y="926" fill="#A0006E"/>
+<circle cx="15" cy="951" r="8" fill="white" stroke-width="1" stroke="black"/>
+<circle cx="15" cy="951" r="5" fill="#A0006E" stroke-width="1" stroke="black"/>
 <a href="https://idfmwiki.miraheze.org/wiki/Accueil" target="_self">
-<text x="120" y="957" style="cursor:pointer;font-weight:800;">M&#233;troville</text>
+<text x="75" y="957" style="cursor:pointer;font-weight:800;">M&#233;troville</text>
 </a>
-<rect width="14" height="50" x="53" y="876" fill="#A0006E"/>
-<rect width="14" height="50" x="53" y="926" fill="#A0006E"/>
+<rect width="14" height="50" x="38" y="876" fill="#A0006E"/>
+<rect width="14" height="50" x="38" y="926" fill="#A0006E"/>
 
-<rect width="14" height="50" x="53" y="976" fill="#A0006E"/>
-<circle cx="60" cy="1001" r="8" fill="white" stroke-width="1" stroke="black"/>
+<rect width="14" height="50" x="38" y="976" fill="#A0006E"/>
+<circle cx="45" cy="1001" r="8" fill="white" stroke-width="1" stroke="black"/>
 <a href="https://idfmwiki.miraheze.org/wiki/Accueil" target="_self">
-<text x="120" y="1007" style="cursor:pointer;">M&#233;nopolis Ouest</text>
+<text x="75" y="1007" style="cursor:pointer;">M&#233;nopolis Ouest</text>
 </a>
-<rect width="14" height="50" x="53" y="1026" fill="#A0006E"/>
-<circle cx="60" cy="1051" r="8" fill="white" stroke-width="1" stroke="black"/>
+<rect width="14" height="50" x="38" y="1026" fill="#A0006E"/>
+<circle cx="45" cy="1051" r="8" fill="white" stroke-width="1" stroke="black"/>
 <a href="https://idfmwiki.miraheze.org/wiki/Accueil" target="_self">
-<text x="120" y="1057" style="cursor:pointer;">M&#233;nopolis Centre</text>
+<text x="75" y="1057" style="cursor:pointer;">M&#233;nopolis Centre</text>
 </a>
-<rect width="14" height="25" x="53" y="1076" fill="#A0006E"/>
-<circle cx="60" cy="1101" r="8" fill="white" stroke-width="1" stroke="black"/>
-<circle cx="60" cy="1101" r="5" fill="#A0006E" stroke-width="1" stroke="black"/>
+<rect width="14" height="25" x="38" y="1076" fill="#A0006E"/>
+<circle cx="45" cy="1101" r="8" fill="white" stroke-width="1" stroke="black"/>
+<circle cx="45" cy="1101" r="5" fill="#A0006E" stroke-width="1" stroke="black"/>
 <a href="https://idfmwiki.miraheze.org/wiki/Accueil" target="_self">
-<text x="120" y="1107" style="cursor:pointer;font-weight:800;">Arnoville &#8211; M&#233;nopolis</text>
+<text x="75" y="1107" style="cursor:pointer;font-weight:800;">Arnoville &#8211; M&#233;nopolis</text>
 </a>
 </svg>
