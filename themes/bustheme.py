@@ -184,7 +184,8 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
 
             # première balise :: ATTENTION ! <loopup><loopdown> et <loopdown><loopup> donnent des résultats différents !
             dx = 15*(maxpb-1)-15
-            A,dj = unibranch_generator(loop1,clr,dx,J,dTEXT)
+            fway = "up" if loop1.tag=="loopup" else "down"
+            A,dj = unibranch_generator(loop1,clr,dx,J,dTEXT,fway)
             SVG = SVG+'\n'+A
             for i in range(len(loop2)):
                 A = tranch(15,dj+i*50,clr,dx,None)
@@ -192,12 +193,12 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
 
             # seconde balise :: ATTENTION ! <loopup><loopdown> et <loopdown><loopup> donnent des résultats différents !
             dx = 15*(maxpb-1)+15
+            fway = "up" if loop2.tag=="loopup" else "down"
             for i in range(len(loop1)):
                 A = tranch(15,J+i*50,clr,dx,None)
                 SVG = SVG+'\n'+A
-            A,dj = unibranch_generator(loop2,clr,dx,dj,dTEXT)
+            A,dj = unibranch_generator(loop2,clr,dx,dj,dTEXT,fway)
             SVG = SVG+'\n'+A
-
             J = dj+25
 
             # crosssection "from"
@@ -232,7 +233,7 @@ def save_file(SVG:str,output:str,J:int):
     return
 
 
-def unibranch_generator(branch:Element[str],clr:str,dx:int,j:int,dTEXT:int):
+def unibranch_generator(branch:Element[str],clr:str,dx:int,j:int,dTEXT:int,forceway:Literal['up','down']|None=None):
     """
     Génère une seule branche pour le thème BUS
     """
@@ -259,7 +260,10 @@ def unibranch_generator(branch:Element[str],clr:str,dx:int,j:int,dTEXT:int):
         BUILD = BUILD + '\n' + tranch(i,j,clr,dx,stopx_curz) + '\n'
 
         term = stopx.get("terminus")=='true'
-        uni = stopx.get("only")
+        if forceway is None:
+            uni = stopx.get("only")
+        else:
+            uni = forceway
         if term and uni is None:
             BUILD = BUILD + terminus(i,j,dx,clr)
         elif term:
