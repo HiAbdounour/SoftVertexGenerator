@@ -93,28 +93,20 @@
 					<wikiref>Accueil</wikiref>
 				</stop>
 			</branch>
-			<branches>
-				<branch>
-					<stop terminus='true' curz="end">
-						<name>Carrières-sous-Ménopolis</name>
-						<wikiref>Accueil</wikiref>
-					</stop>
-				</branch>
-				<branch>
-					<stop>
-						<name>Ménopolis Ouest</name>
-						<wikiref>Accueil</wikiref>
-					</stop>
-					<stop>
-						<name>Ménopolis Centre</name>
-						<wikiref>Accueil</wikiref>
-					</stop>
-					<stop terminus='true' curz='end'>
-						<name>Arnoville – Ménopolis</name>
-						<wikiref>Accueil</wikiref>
-					</stop>
-				</branch>
-			</branches>
+			<branch>
+				<stop>
+					<name>Ménopolis Ouest</name>
+					<wikiref>Accueil</wikiref>
+				</stop>
+				<stop>
+					<name>Ménopolis Centre</name>
+					<wikiref>Accueil</wikiref>
+				</stop>
+				<stop terminus='true' curz='end'>
+					<name>Arnoville – Ménopolis</name>
+					<wikiref>Accueil</wikiref>
+				</stop>
+			</branch>
 		</branches>
     </line>
 </svg_generation>
