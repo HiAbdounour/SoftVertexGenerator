@@ -64,12 +64,17 @@ def unidirectional_terminus(cx:int,cy:int,dx:int,direction:Literal['up','down'],
 
     return f'<polygon points="{tri}" fill="black"/>\n{terminus(cx,cy,dx,clr,isOp)}'
 
-def stop_name(cx:int,cy:int,step:int,txt:str,link:str,bold:bool):
+def stop_name(cx:int,cy:int,step:int,txt:str,link:str,bold:bool,NB:str|None):
     """
     Ajouter le nom de l'arrêt avec un lien vers sa page wiki
+    Le paramètre NB permet d'ajouter un Nota Bene (une note)
     """
     bx = 'font-weight:800;' if bold else ""
-    return f'<a href="https://idfmwiki.miraheze.org/wiki/{xml_characters(link)}" target="_self">\n<text x="{cx+step}" y="{cy+6}" style="cursor:pointer;{bx}">{xml_characters(txt)}</text>\n</a>'
+    if NB is None:
+        addum = ""
+    else:
+        addum = f'<text x="{cx+step}" y="{cy+25}" style="cursor:pointer;{bx};font-style:italic;font-size:12px;">({xml_characters(NB)})</text>'
+    return f'<a href="https://idfmwiki.miraheze.org/wiki/{xml_characters(link)}" target="_self">\n<text x="{cx+step}" y="{cy+6}" style="cursor:pointer;{bx}">{xml_characters(txt)}</text>{addum}\n</a>'
 
 def crosssection(cx:int,cy:int,dx:int,clr:str,from_active:bool=False,to_active:bool=False):
     """
@@ -266,6 +271,10 @@ def unibranch_generator(branch:Element[str],clr:str,dx:int,j:int,dTEXT:int,force
         else:
             uni = forceway
         op = stopx.get('isOp')=='true'
+        stopx_note = stopx.find('.//note')
+        if stopx_note is not None:
+            stopx_note = stopx_note.text
+
         if term and uni is None:
             BUILD = BUILD + terminus(i,j,dx,clr,op)
         elif term:
@@ -274,7 +283,7 @@ def unibranch_generator(branch:Element[str],clr:str,dx:int,j:int,dTEXT:int,force
             BUILD = BUILD + stop(i,j,dx)
         else:
             BUILD = BUILD + unidirectional_stop(i,j,dx,uni)
-        BUILD = BUILD + '\n' + stop_name(i,j,TEXT_STEP,stopx_name,stopx_ref,term)
+        BUILD = BUILD + '\n' + stop_name(i,j,TEXT_STEP,stopx_name,stopx_ref,term,stopx_note)
 
         j+=50
 

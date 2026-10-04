@@ -44,6 +44,7 @@
 			<stop>
 				<name>Pirène</name>
 				<wikiref>Accueil</wikiref>
+				<note>Desservi uniquement le week-end</note>
 			</stop>
 		</branch>
 		<loop>
@@ -101,6 +102,7 @@
 				<stop>
 					<name>Ménopolis Centre</name>
 					<wikiref>Accueil</wikiref>
+					<note>C'est une grosse gare !</note>
 				</stop>
 				<stop terminus='true' curz='end'>
 					<name>Arnoville – Ménopolis</name>

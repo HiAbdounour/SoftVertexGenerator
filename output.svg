@@ -61,7 +61,7 @@ text{
 <rect width="14" height="50" x="23" y="419" fill="#A0006E"/>
 <circle cx="30" cy="444" r="8" fill="white" stroke-width="1" stroke="black"/>
 <a href="https://idfmwiki.miraheze.org/wiki/Accueil" target="_self">
-<text x="75" y="450" style="cursor:pointer;">Pir&#232;ne</text>
+<text x="75" y="450" style="cursor:pointer;">Pir&#232;ne</text><text x="75" y="469" style="cursor:pointer;;font-style:italic;font-size:12px;">(Desservi uniquement le week-end)</text>
 </a><polygon points="21,489 7,489 23,469 37,469 53,489 39,489 30,479" fill="#A0006E"/>
 
 <rect width="14" height="50" x="8" y="488" fill="#A0006E"/>
@@ -137,12 +137,12 @@ text{
 <rect width="14" height="50" x="38" y="1026" fill="#A0006E"/>
 <circle cx="45" cy="1051" r="8" fill="white" stroke-width="1" stroke="black"/>
 <a href="https://idfmwiki.miraheze.org/wiki/Accueil" target="_self">
-<text x="75" y="1057" style="cursor:pointer;">M&#233;nopolis Centre</text>
+<text x="75" y="1057" style="cursor:pointer;">M&#233;nopolis Centre</text><text x="75" y="1076" style="cursor:pointer;;font-style:italic;font-size:12px;">(C'est une grosse gare !)</text>
 </a>
 <rect width="14" height="25" x="38" y="1076" fill="#A0006E"/>
 <circle cx="45" cy="1101" r="8" fill="white" stroke-width="1" stroke="black"/>
 <circle cx="45" cy="1101" r="5" fill="#A0006E" stroke-width="1" stroke="black"/>
-<a href="https://idfmwiki.miraheze.org/wiki/Accueil" target="_self">
+<a href="https://idfmwiki.miraheze.org/wiki/con" target="_self">
 <text x="75" y="1107" style="cursor:pointer;font-weight:800;">Arnoville &#8211; M&#233;nopolis</text>
 </a>
 </svg>
