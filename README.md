@@ -1,6 +1,7 @@
 # SoftVertexGenerator
 Soft Vertex Generator or SVG (oh yeah)
 
+> Théoriquement : version 1.0.1
 
 -- je ferai la docu plus tard
 (ne pas regarder le dossier docs/ pour le moment <-- refonte à faire>)
