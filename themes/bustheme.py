@@ -170,28 +170,29 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
             if len(line[cmpx])!=2:
                 raise AttributeError("<loop> tags must exactly have 2 children !")
             for loopchild in line[cmpx]:
-                if loopchild.tag != "loopup" and loopchild.tag == "loopdown":
+                if loopchild.tag != "loopup" and loopchild.tag != "loopdown":
                     raise AttributeError("A <loop> tag was found with unauthorized children.")
+
+            loop1 = line[cmpx][0]
+            loop2 = line[cmpx][1]
 
             # crosssection "to"
 
             # première balise :: ATTENTION ! <loopup><loopdown> et <loopdown><loopup> donnent des résultats différents !
-            loop1 = line[cmpx][0]
             dx = 15*(maxpb-1)-15
             A,dj = unibranch_generator(loop1,clr,dx,J,dTEXT)
             SVG = SVG+'\n'+A
-            for i in range(len(line[cmpx][1])):
+            for i in range(len(loop2)):
                 A = tranch(15,J+i*50,clr,dx,None)
                 SVG = SVG+'\n'+A
 
             # seconde balise :: ATTENTION ! <loopup><loopdown> et <loopdown><loopup> donnent des résultats différents !
-            loop2 = line[cmpx][1]
             dx = 15*(maxpb-1)+15
-            A,dj = unibranch_generator(line[cmpx][0],clr,dx,J,dTEXT)
-            SVG = SVG+'\n'+A
-            for i in range(len(line[cmpx][1])):
+            for i in range(len(loop1)):
                 A = tranch(15,J+i*50,clr,dx,None)
                 SVG = SVG+'\n'+A
+            A,dj = unibranch_generator(loop2,clr,dx,J,dTEXT)
+            SVG = SVG+'\n'+A
             J = dj+25
 
             # crosssection "from"
