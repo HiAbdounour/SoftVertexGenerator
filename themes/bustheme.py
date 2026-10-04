@@ -177,6 +177,10 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
             loop2 = line[cmpx][1]
 
             # crosssection "to"
+            dx = 15*(maxpb-1)-1
+            A = crosssection(0,J-30,dx,clr,to_active=True)
+            SVG = SVG+A
+            J-=6
 
             # première balise :: ATTENTION ! <loopup><loopdown> et <loopdown><loopup> donnent des résultats différents !
             dx = 15*(maxpb-1)-15
@@ -197,6 +201,10 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
             J = dj+25
 
             # crosssection "from"
+            dx = 15*(maxpb-1)-1
+            A = crosssection(0,J-50,dx,clr,from_active=True)
+            SVG = SVG+'\n'+A
+            J-=6
 
 
         # balise non reconnue
