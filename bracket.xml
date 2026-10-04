@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xml>
-<svg_generation type="BUS" color="magenta" maxpb="2">
+<svg_generation type="BUS" color="magenta" maxpb="3">
     <line>
 		<branches>
 			<branch>
@@ -16,6 +16,10 @@
 					<name>Les Valentons</name>
 					<wikiref>Accueil</wikiref>
 				</stop>
+				<stop only="down">
+					<name>Vallée de Valence</name>
+					<wikiref>Accueil</wikiref>
+				</stop>
 			</branch>
 			<branch>
 				<stop terminus='true' curz='start'>
@@ -24,6 +28,10 @@
 				</stop>
 				<stop>
 					<name>Queretz</name>
+					<wikiref>Accueil</wikiref>
+				</stop>
+				<stop terminus='true'>
+					<name>Porte Froide</name>
 					<wikiref>Accueil</wikiref>
 				</stop>
 			</branch>
@@ -37,6 +45,34 @@
 				<name>Pirène</name>
 				<wikiref>Accueil</wikiref>
 			</stop>
+		</branch>
+		<loop>
+			<loopdown>
+				<stop>
+					<name>Fort-aux-froids</name>
+					<wikiref>Accueil</wikiref>
+				</stop>
+				<stop>
+					<name>Galaxie des Firmaments</name>
+					<wikiref>Accueil</wikiref>
+				</stop>
+			</loopdown>
+			<loopup>
+				<stop>
+					<name>Plage Rouge</name>
+					<wikiref>Accueil</wikiref>
+				</stop>
+				<stop terminus='true'>
+					<name>Plateau des Mers Salées</name>
+					<wikiref>Accueil</wikiref>
+				</stop>
+				<stop>
+					<name>Maxiville-sur-Mer</name>
+					<wikiref>Accueil</wikiref>
+				</stop>
+			</loopup>
+		</loop>
+		<branch>
 			<stop>
 				<name>Grosland-sous-Mer</name>
 				<wikiref>Accueil</wikiref>
@@ -57,12 +93,28 @@
 					<wikiref>Accueil</wikiref>
 				</stop>
 			</branch>
-			<branch>
-				<stop>
-					<name>Carrières-sous-Ménopolis</name>
-					<wikiref>Accueil</wikiref>
-				</stop>
-			</branch>
+			<branches>
+				<branch>
+					<stop terminus='true' curz="end">
+						<name>Carrières-sous-Ménopolis</name>
+						<wikiref>Accueil</wikiref>
+					</stop>
+				</branch>
+				<branch>
+					<stop>
+						<name>Ménopolis Ouest</name>
+						<wikiref>Accueil</wikiref>
+					</stop>
+					<stop>
+						<name>Ménopolis Centre</name>
+						<wikiref>Accueil</wikiref>
+					</stop>
+					<stop terminus='true' curz='end'>
+						<name>Arnoville – Ménopolis</name>
+						<wikiref>Accueil</wikiref>
+					</stop>
+				</branch>
+			</branches>
 		</branches>
     </line>
 </svg_generation>
