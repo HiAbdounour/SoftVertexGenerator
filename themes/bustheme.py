@@ -183,7 +183,7 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
             A,dj = unibranch_generator(loop1,clr,dx,J,dTEXT)
             SVG = SVG+'\n'+A
             for i in range(len(loop2)):
-                A = tranch(15,J+i*50,clr,dx,None)
+                A = tranch(15,dj+i*50,clr,dx,None)
                 SVG = SVG+'\n'+A
 
             # seconde balise :: ATTENTION ! <loopup><loopdown> et <loopdown><loopup> donnent des résultats différents !
@@ -191,8 +191,9 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
             for i in range(len(loop1)):
                 A = tranch(15,J+i*50,clr,dx,None)
                 SVG = SVG+'\n'+A
-            A,dj = unibranch_generator(loop2,clr,dx,J,dTEXT)
+            A,dj = unibranch_generator(loop2,clr,dx,dj,dTEXT)
             SVG = SVG+'\n'+A
+
             J = dj+25
 
             # crosssection "from"
