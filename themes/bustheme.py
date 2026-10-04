@@ -98,7 +98,7 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
     J = presety if presety is not None else 25
     dTEXT = 45*(maxpb-1)
 
-    # Disjonction de cas : <branch> ou <branches>
+    # Disjonction de cas : <branch> ou <branches> ou <loop>
     for cmpx in range(len(line)):
         cpmxtag = line[cmpx].tag
 
@@ -163,6 +163,36 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
                 A = crosssection(0,J-50,dx,clr,from_active=True)
                 SVG = SVG+'\n'+A
                 J-=6
+
+        # balise <loop>
+        elif cpmxtag == "loop":
+            # checkings complets
+            if len(line[cmpx])!=2:
+                raise AttributeError("<loop> tags must exactly have 2 children !")
+            for loopchild in line[cmpx]:
+                if loopchild.tag != "loopup" and loopchild.tag == "loopdown":
+                    raise AttributeError("A <loop> tag was found with unauthorized children.")
+
+            # crosssection "to"
+
+            # première balise :: ATTENTION ! <loopup><loopdown> et <loopdown><loopup> donnent des résultats différents !
+            loop1 = line[cmpx][0]
+            dx = 15*(maxpb-1)-15
+            A,dj = unibranch_generator(loop1,clr,dx,J,dTEXT)
+            #// empty! pour la suite
+            SVG = SVG+'\n'+A
+            J = dj+25
+
+            # seconde balise :: ATTENTION ! <loopup><loopdown> et <loopdown><loopup> donnent des résultats différents !
+            loop2 = line[cmpx][1]
+            dx = 15*(maxpb-1)+15
+            A,dj = unibranch_generator(line[cmpx][0],clr,dx,J,dTEXT)
+            #// empty! pour le début
+            SVG = SVG+'\n'+A
+            J = dj+25
+
+            # crosssection "from"
+
 
         # balise non reconnue
         else:
