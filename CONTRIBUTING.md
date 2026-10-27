@@ -6,7 +6,6 @@ Vous pouvez contribuer de plusieurs façons.
 Vous aidez à concevoir une fonctionnalité, à résoudre un bug ou à rédiger la documentation.
 
 Pour cela, vous devez **avoir Python installé sur votre ordinateur**. La version utilisée pour développer ce projet est la version **3.14.2**. Si votre version est trop élevée, vous pouvez utiliser un [environnement virtuel](https://pytransit.wordpress.com/2026/04/24/pylearn-mettre-en-place-un-environnement-virtuel/).\
-Il est aussi recommandé 
 
 Une fois tout ceci prêt, **effectuez un fork** ou **clonez le code source**.\
 Réalisez sur cette version (fork ou code local) votre développement.\
