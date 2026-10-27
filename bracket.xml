@@ -16,6 +16,10 @@
 					<name>Les Valentons</name>
 					<wikiref>Accueil</wikiref>
 				</stop>
+				<stop closed='true'>
+					<name>Ancienne Gare</name>
+					<wikiref>Accueil</wikiref>
+				</stop>
 				<stop only="down">
 					<name>Vallée de Valence</name>
 					<wikiref>Accueil</wikiref>
