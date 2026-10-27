@@ -6,14 +6,20 @@ from typing import Literal
 from xml.etree.ElementTree import Element
 from core.utils import xml_characters
 
+def closed(cx:int,cy:int):
+    """
+    Place une croix rouge pour signifier la fermeture d'un arrêt
+    """
+    return f'<path d="M{cx-8} {cy+8-1.455}L{cx-8+1.455} {cy+8} {cx} {cy+1.455} {cx+8-1.455} {cy+8} {cx+8} {cy+8-1.455} {cx+1.455} {cy} {cx+8} {cy-8+1.455} {cx+8-1.455} {cy-8} {cx} {cy-1.455} {cx-8+1.455} {cy-8} {cx-8} {cy-8+1.455} {cx-1.455} {cy}z" fill="red" fill-rule="evenodd"></path>'
 
-def stop(cx:int,cy:int,dx:int):
+def stop(cx:int,cy:int,dx:int,cls:bool=False):
     """
     Un arrêt de bus normal
     """
-    return f'<circle cx="{cx+dx}" cy="{cy}" r="8" fill="white" stroke-width="1" stroke="black"/>'
+    bn = closed(cx,cy) if cls else ""
+    return f'<circle cx="{cx+dx}" cy="{cy}" r="8" fill="white" stroke-width="1" stroke="black"/>{bn}'
 
-def unidirectional_stop(cx:int,cy:int,dx:int,direction:Literal['up','down']):
+def unidirectional_stop(cx:int,cy:int,dx:int,direction:Literal['up','down'],cls:bool=False):
     """
     Un arrêt de bus desservi uniquement dans un seul sens
     """
@@ -24,7 +30,7 @@ def unidirectional_stop(cx:int,cy:int,dx:int,direction:Literal['up','down']):
     else:
         raise ValueError(f"Direction {direction} is not valid. Please state 'up' or 'down' or use the stop() function instead.")
 
-    return f'<polygon points="{tri}" fill="black"/>\n{stop(cx,cy,dx)}'
+    return f'<polygon points="{tri}" fill="black"/>\n{stop(cx,cy,dx,cls)}'
 
 def tranch(cx:int,cy:int,clr:str,dx:int,curz:Literal["start","end"]|None,partial:bool=False):
     """
@@ -277,15 +283,16 @@ def unibranch_generator(branch:Element[str],clr:str,dx:int,j:int,dTEXT:int,force
         stopx_note = stopx.find('.//note')
         if stopx_note is not None:
             stopx_note = stopx_note.text
+        closed_stop = stopx.get("closed")=="true"
 
         if term and uni is None:
             BUILD = BUILD + terminus(i,j,dx,clr,op,partial)
         elif term:
             BUILD = BUILD + unidirectional_terminus(i,j,dx,uni,clr,op,partial)
         elif uni is None:
-            BUILD = BUILD + stop(i,j,dx)
+            BUILD = BUILD + stop(i,j,dx,closed_stop)
         else:
-            BUILD = BUILD + unidirectional_stop(i,j,dx,uni)
+            BUILD = BUILD + unidirectional_stop(i,j,dx,uni,closed_stop)
         BUILD = BUILD + '\n' + stop_name(i,j,TEXT_STEP,stopx_name,stopx_ref,term,stopx_note)
 
         j+=50
