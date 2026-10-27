@@ -45,14 +45,15 @@ def tranch(cx:int,cy:int,clr:str,dx:int,curz:Literal["start","end"]|None,partial
     transparency = 0.6 if partial else 1.0
     return f'<rect width="14" height="{val}" x="{cx-7+dx}" y="{cy+dy}" fill="{clr}" fill-opacity="{transparency}"/>'
 
-def terminus(cx:int,cy:int,dx:int,clr:str,isOp:bool):
+def terminus(cx:int,cy:int,dx:int,clr:str,isOp:bool,partial:bool):
     """
     Un terminus de ligne de bus
     """
     color = "#9e9e9e" if isOp else clr
-    return f'<circle cx="{cx+dx}" cy="{cy}" r="8" fill="white" stroke-width="1" stroke="black"/>\n<circle cx="{cx+dx}" cy="{cy}" r="5" fill="{color}" stroke-width="1" stroke="black"/>'
+    transparency = 0.6 if partial else 1.0
+    return f'<circle cx="{cx+dx}" cy="{cy}" r="8" fill="white" stroke-width="1" stroke="black"/>\n<circle cx="{cx+dx}" cy="{cy}" r="5" fill="{color}" fill-opacity="{transparency}" stroke-width="1" stroke="black"/>'
 
-def unidirectional_terminus(cx:int,cy:int,dx:int,direction:Literal['up','down'],clr:str,isOp:bool):
+def unidirectional_terminus(cx:int,cy:int,dx:int,direction:Literal['up','down'],clr:str,isOp:bool,partial:bool):
     """
     Un terminus desservi uniquement dans un seul sens
     """
@@ -63,7 +64,7 @@ def unidirectional_terminus(cx:int,cy:int,dx:int,direction:Literal['up','down'],
     else:
         raise ValueError(f"Direction {direction} is not valid. Please state 'up' or 'down' or use the terminus() function instead.")
 
-    return f'<polygon points="{tri}" fill="black"/>\n{terminus(cx,cy,dx,clr,isOp)}'
+    return f'<polygon points="{tri}" fill="black"/>\n{terminus(cx,cy,dx,clr,isOp,partial)}'
 
 def stop_name(cx:int,cy:int,step:int,txt:str,link:str,bold:bool,NB:str|None):
     """
@@ -77,7 +78,7 @@ def stop_name(cx:int,cy:int,step:int,txt:str,link:str,bold:bool,NB:str|None):
         addum = f'<text x="{cx+step}" y="{cy+25}" style="cursor:pointer;{bx};font-style:italic;font-size:12px;">({xml_characters(NB)})</text>'
     return f'<a href="https://idfmwiki.miraheze.org/wiki/{xml_characters(link)}" target="_self">\n<text x="{cx+step}" y="{cy+6}" style="cursor:pointer;{bx}">{xml_characters(txt)}</text>{addum}\n</a>'
 
-def crosssection(cx:int,cy:int,dx:int,clr:str,from_active:bool=False,to_active:bool=False):
+def crosssection(cx:int,cy:int,dx:int,clr:str,from_active:bool=False,to_active:bool=False,lp:bool=False,rp:bool=False):
     """
     Construis une bifurcation entre deux branches
     >> from : la bifurcation passe de deux branches à une branche (regroupement)
@@ -91,9 +92,9 @@ def crosssection(cx:int,cy:int,dx:int,clr:str,from_active:bool=False,to_active:b
         ddd = 1
     else:
         raise RuntimeError('from or to crosssection ?')
-    p = f'<polygon points="{AX+14},{AY} {AX},{AY} {AX+16},{AY+20*ddd} {AX+30},{AY+20*ddd} {AX+46},{AY} {AX+32},{AY} {AX+23},{AY+10*ddd}" fill="{clr}"/>'
+    p = f'''<polygon points="{AX},{AY} {AX+14},{AY} {AX+23},{AY+10*ddd} {AX+23},{AY+20*ddd} {AX+16},{AY+20*ddd}" fill="{clr}" fill-opacity="{0.6 if lp else 1.0}"/>\n
+    <polygon points="{AX+32},{AY} {AX+46},{AY} {AX+30},{AY+20*ddd} {AX+23},{AY+20*ddd} {AX+23},{AY+10*ddd}" fill="{clr}" fill-opacity="{0.6 if rp else 1.0}"/>'''
     return p
-
 
 #### CONTROLE
 def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,presety:int|None=None,way:Literal["from",'to']|None=None,width:int=500):
@@ -135,7 +136,7 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
                         SVG = SVG+'\n'+A
                         J+=dj-25 # why?
                     for i in range(len(line[oth])):
-                        A = tranch(15,J+i*50,clr,dx,None,line[oth].get('partial')=="true")
+                        A = tranch(15,J+i*50,clr,dx,None,line[cur].get('partial')=="true")
                         SVG = SVG+'\n'+A
                     if way=='to':
                         A,dj = unibranch_generator(line[cur],clr,dx,J+len(line[oth])*50,dTEXT)
@@ -152,7 +153,7 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
             # la bifurcation
             dx = 15*(maxpb-1)-1
             if cmpx!=0 and line[cmpx-1].tag=='branch':
-                A = crosssection(0,J-30,dx,clr,to_active=True)
+                A = crosssection(0,J-30,dx,clr,to_active=True,lp=line[cmpx][0].get('partial')=='true',rp=line[cmpx][1].get('partial')=='true')
                 way = 'to'
                 SVG = SVG+A
                 J-=6
@@ -167,7 +168,7 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
             J+=dj
             # crosssection pour les "from"
             if cmpx!=len(line)-1 and line[cmpx+1].tag=='branch':
-                A = crosssection(0,J-50,dx,clr,from_active=True)
+                A = crosssection(0,J-50,dx,clr,from_active=True,lp=line[cmpx][0].get('partial')=='true',rp=line[cmpx][0].get('partial')=='true')
                 SVG = SVG+'\n'+A
                 J-=6
 
@@ -278,9 +279,9 @@ def unibranch_generator(branch:Element[str],clr:str,dx:int,j:int,dTEXT:int,force
             stopx_note = stopx_note.text
 
         if term and uni is None:
-            BUILD = BUILD + terminus(i,j,dx,clr,op)
+            BUILD = BUILD + terminus(i,j,dx,clr,op,partial)
         elif term:
-            BUILD = BUILD + unidirectional_terminus(i,j,dx,uni,clr,op)
+            BUILD = BUILD + unidirectional_terminus(i,j,dx,uni,clr,op,partial)
         elif uni is None:
             BUILD = BUILD + stop(i,j,dx)
         else:
