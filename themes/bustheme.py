@@ -26,7 +26,7 @@ def unidirectional_stop(cx:int,cy:int,dx:int,direction:Literal['up','down']):
 
     return f'<polygon points="{tri}" fill="black"/>\n{stop(cx,cy,dx)}'
 
-def tranch(cx:int,cy:int,clr:str,dx:int,curz:Literal["start","end"]|None):
+def tranch(cx:int,cy:int,clr:str,dx:int,curz:Literal["start","end"]|None,partial:bool=False):
     """
     Une branche colorée autour de l'arrêt
     """
@@ -42,7 +42,8 @@ def tranch(cx:int,cy:int,clr:str,dx:int,curz:Literal["start","end"]|None):
     if curz is None:
         val = 50
         dy = -25
-    return f'<rect width="14" height="{val}" x="{cx-7+dx}" y="{cy+dy}" fill="{clr}"/>'
+    transparency = 0.6 if partial else 1.0
+    return f'<rect width="14" height="{val}" x="{cx-7+dx}" y="{cy+dy}" fill="{clr}" fill-opacity="{transparency}"/>'
 
 def terminus(cx:int,cy:int,dx:int,clr:str,isOp:bool):
     """
@@ -134,7 +135,7 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
                         SVG = SVG+'\n'+A
                         J+=dj-25 # why?
                     for i in range(len(line[oth])):
-                        A = tranch(15,J+i*50,clr,dx,None)
+                        A = tranch(15,J+i*50,clr,dx,None,line[oth].get('partial')=="true")
                         SVG = SVG+'\n'+A
                     if way=='to':
                         A,dj = unibranch_generator(line[cur],clr,dx,J+len(line[oth])*50,dTEXT)
@@ -247,6 +248,7 @@ def unibranch_generator(branch:Element[str],clr:str,dx:int,j:int,dTEXT:int,force
     BUILD = ""
     i = 15
     TEXT_STEP = 15+dTEXT
+    partial = branch.get("partial")=='true'
 
     # Corps
     for x in range(len(branch)):
@@ -263,7 +265,7 @@ def unibranch_generator(branch:Element[str],clr:str,dx:int,j:int,dTEXT:int,force
             raise Warning(f"Link for stop number {x+1} contain spaces. Make sure wikiref tags respect the MediaWiki links syntax")
         stopx_curz = stopx.get('curz')
 
-        BUILD = BUILD + '\n' + tranch(i,j,clr,dx,stopx_curz) + '\n'
+        BUILD = BUILD + '\n' + tranch(i,j,clr,dx,stopx_curz,partial) + '\n'
 
         term = stopx.get("terminus")=='true'
         if forceway is None:
