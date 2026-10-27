@@ -84,7 +84,7 @@
 			</stop>
 		</branch>
 		<branches>
-			<branch>
+			<branch partial="true">
 				<stop>
 					<name>Friandville Les Grands</name>
 					<wikiref>Accueil</wikiref>
