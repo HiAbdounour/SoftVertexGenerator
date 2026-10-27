@@ -38,13 +38,13 @@ def xmlparser(input_file:str):
         if maxpb<=0:
             raise ValueError
 
-        # récupère l'embedding
-        base = root[0]
-
         # recherche de la largeur du SVG
         cwidth = root.get("cwidth")
         if cwidth is None:
             cwidth = 500
+
+        # récupère l'embedding
+        base = root[0]
 
         ###" UNIQUEMENT POUR LA PRODUCTION (CONSERVATION HORS BRACKET)"
         try:
