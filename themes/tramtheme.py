@@ -72,7 +72,7 @@ def unidirectional_terminus(cx:int,cy:int,dx:int,direction:Literal['up','down'],
 
     return f'<polygon points="{tri}" fill="black"/>\n{terminus(cx,cy,dx,clr,isOp)}'
 
-def stop_name(cx:int,cy:int,step:int,txt:str,link:str,bold:bool,underNB:str|None):
+def stop_name(cx:int,cy:int,step:int,txt:str,link:str,bold:bool,notes:list):
     """
     Ajouter le nom de l'arrêt avec un lien vers sa page wiki
     Le paramètre NB permet d'ajouter un Nota Bene (une note)
@@ -290,7 +290,7 @@ def unibranch_generator(branch:Element[str],clr:str,dx:int,j:int,dTEXT:int,force
             BUILD = BUILD + stop(i,j,dx,closed_stop)
         else:
             BUILD = BUILD + unidirectional_stop(i,j,dx,uni,closed_stop)
-        BUILD = BUILD + '\n' + stop_name(i,j,TEXT_STEP,stopx_name,stopx_ref,term,None)
+        BUILD = BUILD + '\n' + stop_name(i,j,TEXT_STEP,stopx_name,stopx_ref,term,notes)
 
         j+=50
 
