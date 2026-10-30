@@ -17,7 +17,7 @@ def stop(cx:int,cy:int,dx:int,cls:bool=False):
     Une gare normale
     """
     bn = closed(cx,cy) if cls else ""
-    return f'<circle cx="{cx+dx}" cy="{cy}" r="8" fill="white" stroke-width="1" stroke="black"/>{bn}'
+    return f'<circle cx="{cx+3+dx}" cy="{cy}" r="8" fill="white" stroke-width="1" stroke="black"/>{bn}'
 
 def tranch(cx:int,cy:int,clr:str,dx:int,curz:Literal["start","end"]|None):
     """
@@ -35,13 +35,13 @@ def tranch(cx:int,cy:int,clr:str,dx:int,curz:Literal["start","end"]|None):
     if curz is None:
         val = 50
         dy = -25
-    return f'<rect width="14" height="{val}" x="{cx-7+dx}" y="{cy+dy}" fill="{clr}"/>'
+    return f'<rect width="20" height="{val}" x="{cx-7+dx}" y="{cy+dy}" fill="{clr}"/>'
 
 def terminus(cx:int,cy:int,dx:int,clr:str):
     """
     Un terminus de RER et Transilien
     """
-    return f'<circle cx="{cx+dx}" cy="{cy}" r="8" fill="white" stroke-width="1" stroke="black"/>\n<circle cx="{cx+dx}" cy="{cy}" r="5" fill="{clr}" stroke-width="1" stroke="black"/>'
+    return f'<circle cx="{cx+3+dx}" cy="{cy}" r="8" fill="white" stroke-width="1" stroke="black"/>\n<circle cx="{cx+3+dx}" cy="{cy}" r="5" fill="{clr}" stroke-width="1" stroke="black"/>'
 
 def stop_name(cx:int,cy:int,step:int,txt:str,link:str,bold:bool,notes:list):
     """
@@ -70,8 +70,8 @@ def crosssection(cx:int,cy:int,dx:int,clr:str,from_active:bool=False,to_active:b
         ddd = 1
     else:
         raise RuntimeError('from or to crosssection ?')
-    p = f'''<polygon points="{AX+1},{AY} {AX+15},{AY} {AX+23},{AY+10*ddd} {AX+23},{AY+20*ddd} {AX+16},{AY+20*ddd}" fill="{clr}"/>\n
-    <polygon points="{AX+31},{AY} {AX+45},{AY} {AX+30},{AY+20*ddd} {AX+23},{AY+20*ddd} {AX+23},{AY+10*ddd}" fill="{clr}"/>'''
+    p = f'''<polygon points="{AX+1},{AY} {AX+21},{AY} {AX+26},{AY+10*ddd} {AX+26},{AY+20*ddd} {AX+16},{AY+20*ddd}" fill="{clr}"/>\n
+    <polygon points="{AX+31},{AY} {AX+51},{AY} {AX+36},{AY+20*ddd} {AX+26},{AY+20*ddd} {AX+26},{AY+10*ddd}" fill="{clr}"/>'''
     return p
 
 #### CONTROLE
