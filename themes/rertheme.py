@@ -17,7 +17,7 @@ def stop(cx:int,cy:int,dx:int,cls:bool=False):
     Une gare normale
     """
     bn = closed(cx,cy) if cls else ""
-    return f'<circle cx="{cx+3+dx}" cy="{cy}" r="8" fill="white" stroke-width="1" stroke="black"/>{bn}'
+    return f'<circle cx="{cx+3+dx}" cy="{cy}" r="8" fill="white"/>{bn}'
 
 def tranch(cx:int,cy:int,clr:str,dx:int,curz:Literal["start","end"]|None):
     """
