@@ -34,7 +34,7 @@ def unidirectional_stop(cx:int,cy:int,dx:int,direction:Literal['up','down'],cls:
 
 def tranch(cx:int,cy:int,clr:str,dx:int,curz:Literal["start","end"]|None):
     """
-    Une branche colorée autour de la station
+    Une branche colorée autour de l'arrêt
     """
     if curz is not None:
         if curz=="start":
@@ -48,9 +48,7 @@ def tranch(cx:int,cy:int,clr:str,dx:int,curz:Literal["start","end"]|None):
     if curz is None:
         val = 50
         dy = -25
-    return f'''<rect width="4" height="{val}" x="{cx-7+dx}" y="{cy+dy}" fill="{clr}"/>\n
-    <rect width="6" height="{val}" x="{cx-3+dx}" y="{cy+dy}" fill="{clr}" fill-opacity="0.6"/>\n
-    <rect width="4" height="{val}" x="{cx+3+dx}" y="{cy+dy}" fill="{clr}"/>'''
+    return f'<rect width="14" height="{val}" x="{cx-7+dx}" y="{cy+dy}" fill="{clr}"/>'
 
 def terminus(cx:int,cy:int,dx:int,clr:str):
     """
@@ -98,11 +96,9 @@ def crosssection(cx:int,cy:int,dx:int,clr:str,from_active:bool=False,to_active:b
         ddd = 1
     else:
         raise RuntimeError('from or to crosssection ?')
-    
-    return f'''<polygon points="{AX+1},{AY} {AX+5},{AY} {AX+20},{AY+20*ddd} {AX+16},{AY+20*ddd}" fill="{clr}"/>\n
-    <polygon points="{AX+41},{AY} {AX+45},{AY} {AX+30},{AY+20*ddd} {AX+26},{AY+20*ddd}" fill="{clr}"/>\n
-    <polygon points="{AX+11},{AY} {AX+23},{AY+14*ddd} {AX+35},{AY} {AX+31},{AY} {AX+23},{AY+10*ddd} {AX+15},{AY}" fill="{clr}"/>\n
-    <polygon points="{AX+5},{AY} {AX+11},{AY} {AX+23},{AY+14*ddd} {AX+35},{AY} {AX+41},{AY} {AX+26},{AY+20*ddd} {AX+20},{AY+20*ddd}" fill="{clr}" fill-opacity="0.6"/>'''
+    p = f'''<polygon points="{AX+1},{AY} {AX+15},{AY} {AX+23},{AY+10*ddd} {AX+23},{AY+20*ddd} {AX+16},{AY+20*ddd}" fill="{clr}"/>\n
+    <polygon points="{AX+31},{AY} {AX+45},{AY} {AX+30},{AY+20*ddd} {AX+23},{AY+20*ddd} {AX+23},{AY+10*ddd}" fill="{clr}"/>'''
+    return p
 
 #### CONTROLE
 def metro_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,presety:int|None=None,way:Literal["from",'to']|None=None,width:int=500):
