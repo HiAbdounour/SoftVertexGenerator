@@ -283,11 +283,7 @@ def unibranch_generator(branch:Element[str],clr:str,dx:int,j:int,dTEXT:int,force
         op = stopx.get('isOp')=='true'
         closed_stop = stopx.get("closed")=="true"
         
-        # all "notes"
-        under_note = stopx.find('.//under')
-        if under_note is not None:
-            under_note = under_note.text
-        
+        notes = [stopx.find(".//above"),stopx.find(".//note"),stopx.find(".//under")]
 
         if term and uni is None:
             BUILD = BUILD + terminus(i,j,dx,clr,op)
@@ -297,7 +293,7 @@ def unibranch_generator(branch:Element[str],clr:str,dx:int,j:int,dTEXT:int,force
             BUILD = BUILD + stop(i,j,dx,closed_stop)
         else:
             BUILD = BUILD + unidirectional_stop(i,j,dx,uni,closed_stop)
-        BUILD = BUILD + '\n' + stop_name(i,j,TEXT_STEP,stopx_name,stopx_ref,term,under_note)
+        BUILD = BUILD + '\n' + stop_name(i,j,TEXT_STEP,stopx_name,stopx_ref,term,None)
 
         j+=50
 
