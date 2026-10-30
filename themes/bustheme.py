@@ -86,7 +86,7 @@ def stop_name(cx:int,cy:int,step:int,txt:str,link:str,bold:bool,NB:str|None):
 
 def crosssection(cx:int,cy:int,dx:int,clr:str,from_active:bool=False,to_active:bool=False,lp:bool=False,rp:bool=False):
     """
-    Construis une bifurcation entre deux branches
+    Construit une bifurcation entre deux branches
     >> from : la bifurcation passe de deux branches à une branche (regroupement)
     >> to : la bifurcation passe d'une branche à deux branches (séparation)
     """
