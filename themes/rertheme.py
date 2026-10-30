@@ -27,15 +27,18 @@ def tranch(cx:int,cy:int,clr:str,dx:int,curz:Literal["start","end"]|None):
         if curz=="start":
             val = 25
             dy = 0
+            bn = f'<rect width="20" height="20" x="{cx-7+dx}" y="{cy-10}" rx="50" fill="{clr}"/>'
         elif curz=='end':
             val = 25
             dy = -25
+            bn = f'<rect width="20" height="20" x="{cx-7+dx}" y="{cy-10}" rx="50" fill="{clr}"/>'
         else:
             curz = None
     if curz is None:
         val = 50
         dy = -25
-    return f'<rect width="20" height="{val}" x="{cx-7+dx}" y="{cy+dy}" fill="{clr}"/>'
+        bn = ""
+    return f'<rect width="20" height="{val}" x="{cx-7+dx}" y="{cy+dy}" fill="{clr}"/>{bn}'
 
 def terminus(cx:int,cy:int,dx:int,clr:str):
     """
