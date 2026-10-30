@@ -24,9 +24,9 @@ def unidirectional_stop(cx:int,cy:int,dx:int,direction:Literal['up','down'],cls:
     Un arrêt de LHNS desservi uniquement dans un seul sens
     """
     if direction=='up':
-        tri = f"{cx-5+dx},{cy+5} {cx+5+dx},{cy+5} {cx+dx},{cy-5}"
+        tri = f"{cx-5+dx},{cy+3} {cx+5+dx},{cy+3} {cx+dx},{cy-5}"
     elif direction=='down':
-        tri = f"{cx-5+dx},{cy-5} {cx+5+dx},{cy-5} {cx+dx},{cy+5}"
+        tri = f"{cx-5+dx},{cy-3} {cx+5+dx},{cy-3} {cx+dx},{cy+5}"
     else:
         raise ValueError(f"Direction {direction} is not valid. Please state 'up' or 'down' or use the stop() function instead.")
 
