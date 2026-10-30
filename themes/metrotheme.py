@@ -34,7 +34,7 @@ def unidirectional_stop(cx:int,cy:int,dx:int,direction:Literal['up','down'],cls:
 
 def tranch(cx:int,cy:int,clr:str,dx:int,curz:Literal["start","end"]|None):
     """
-    Une branche colorée autour de l'arrêt
+    Une branche colorée autour de la station
     """
     if curz is not None:
         if curz=="start":
