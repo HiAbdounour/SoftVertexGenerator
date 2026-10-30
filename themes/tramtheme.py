@@ -1,6 +1,6 @@
 """
 TRAM THEME
-Le thème utilisé pour les lignes de tramway.
+Le thème utilisé pour les lignes LHNS (tramway + BHNS)
 """
 from typing import Literal
 from xml.etree.ElementTree import Element
@@ -12,16 +12,16 @@ def closed(cx:int,cy:int):
     """
     return f'<path d="M{cx-8} {cy+8-1.455}L{cx-8+1.455} {cy+8} {cx} {cy+1.455} {cx+8-1.455} {cy+8} {cx+8} {cy+8-1.455} {cx+1.455} {cy} {cx+8} {cy-8+1.455} {cx+8-1.455} {cy-8} {cx} {cy-1.455} {cx-8+1.455} {cy-8} {cx-8} {cy-8+1.455} {cx-1.455} {cy}z" fill="red" fill-rule="evenodd"></path>'
 
-def stop(cx:int,cy:int,dx:int,clr:str,cls:bool=False):
+def stop(cx:int,cy:int,dx:int,cls:bool=False):
     """
     Un arrêt de bus normal
     """
     bn = closed(cx,cy) if cls else ""
-    return f'<circle cx="{cx+dx}" cy="{cy}" r="8" fill="{clr}"/>{bn}'
+    return f'<circle cx="{cx+dx}" cy="{cy}" r="8" fill="white" stroke-width="1" stroke="black"/>{bn}'
 
 def unidirectional_stop(cx:int,cy:int,dx:int,clr:str,direction:Literal['up','down'],cls:bool=False):
     """
-    Un arrêt de bus desservi uniquement dans un seul sens
+    Un arrêt de LHNS desservi uniquement dans un seul sens
     """
     if direction=='up':
         tri = f"{cx-5+dx},{cy+5} {cx+5+dx},{cy+5} {cx+dx},{cy-5}"
@@ -30,7 +30,7 @@ def unidirectional_stop(cx:int,cy:int,dx:int,clr:str,direction:Literal['up','dow
     else:
         raise ValueError(f"Direction {direction} is not valid. Please state 'up' or 'down' or use the stop() function instead.")
 
-    return f'<polygon points="{tri}" fill="black"/>\n{stop(cx,cy,dx,clr,cls)}'
+    return f'<polygon points="{tri}" fill="black"/>\n{stop(cx,cy,dx,cls)}'
 
 def tranch(cx:int,cy:int,clr:str,dx:int,curz:Literal["start","end"]|None):
     """
@@ -48,13 +48,13 @@ def tranch(cx:int,cy:int,clr:str,dx:int,curz:Literal["start","end"]|None):
     if curz is None:
         val = 50
         dy = -25
-    return f'''<rect width="2" height="{val}" x="{cx-7+dx}" y="{cy+dy}" fill="{clr}"/>\n
-    <rect width="10" height="{val}" x="{cx-5+dx}" y="{cy+dy}" fill="{clr}" fill-opacity="0.6"/>\n
-    <rect width="2" height="{val}" x="{cx+5+dx}" y="{cy+dy}" fill="{clr}"/>'''
+    return f'''<rect width="4" height="{val}" x="{cx-7+dx}" y="{cy+dy}" fill="{clr}"/>\n
+    <rect width="6" height="{val}" x="{cx-3+dx}" y="{cy+dy}" fill="{clr}" fill-opacity="0.6"/>\n
+    <rect width="4" height="{val}" x="{cx+3+dx}" y="{cy+dy}" fill="{clr}"/>'''
 
 def terminus(cx:int,cy:int,dx:int,clr:str,isOp:bool):
     """
-    Un terminus de ligne de bus
+    Un terminus de LHNS
     """
     color = "#9e9e9e" if isOp else clr
     return f'<circle cx="{cx+dx}" cy="{cy}" r="8" fill="white" stroke-width="1" stroke="black"/>\n<circle cx="{cx+dx}" cy="{cy}" r="5" fill="{color}" stroke-width="1" stroke="black"/>'
@@ -291,9 +291,9 @@ def unibranch_generator(branch:Element[str],clr:str,dx:int,j:int,dTEXT:int,force
         elif term:
             BUILD = BUILD + unidirectional_terminus(i,j,dx,uni,clr,op)
         elif uni is None:
-            BUILD = BUILD + stop(i,j,dx,clr,closed_stop)
+            BUILD = BUILD + stop(i,j,dx,closed_stop)
         else:
-            BUILD = BUILD + unidirectional_stop(i,j,dx,clr,uni,closed_stop)
+            BUILD = BUILD + unidirectional_stop(i,j,dx,uni,closed_stop)
         BUILD = BUILD + '\n' + stop_name(i,j,TEXT_STEP,stopx_name,stopx_ref,term,under_note)
 
         j+=50
