@@ -98,8 +98,8 @@ def crosssection(cx:int,cy:int,dx:int,clr:str,from_active:bool=False,to_active:b
         ddd = 1
     else:
         raise RuntimeError('from or to crosssection ?')
-    p = f'''<polygon points="{AX},{AY} {AX+14},{AY} {AX+23},{AY+10*ddd} {AX+23},{AY+20*ddd} {AX+16},{AY+20*ddd}" fill="{clr}" fill-opacity="{0.6 if lp else 1.0}"/>\n
-    <polygon points="{AX+32},{AY} {AX+46},{AY} {AX+30},{AY+20*ddd} {AX+23},{AY+20*ddd} {AX+23},{AY+10*ddd}" fill="{clr}" fill-opacity="{0.6 if rp else 1.0}"/>'''
+    p = f'''<polygon points="{AX+1},{AY} {AX+15},{AY} {AX+23},{AY+10*ddd} {AX+23},{AY+20*ddd} {AX+16},{AY+20*ddd}" fill="{clr}" fill-opacity="{0.6 if lp else 1.0}"/>\n
+    <polygon points="{AX+31},{AY} {AX+45},{AY} {AX+30},{AY+20*ddd} {AX+23},{AY+20*ddd} {AX+23},{AY+10*ddd}" fill="{clr}" fill-opacity="{0.6 if rp else 1.0}"/>'''
     return p
 
 #### CONTROLE
@@ -162,7 +162,7 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
                 A = crosssection(0,J-30,dx,clr,to_active=True,lp=line[cmpx][0].get('partial')=='true',rp=line[cmpx][1].get('partial')=='true')
                 way = 'to'
                 SVG = SVG+A
-                J-=6
+                J-=5
             elif cmpx!=len(line)-1 and line[cmpx+1].tag=='branch':
                 # la crosssection vient plus loin
                 way = 'from'
