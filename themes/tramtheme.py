@@ -75,7 +75,6 @@ def unidirectional_terminus(cx:int,cy:int,dx:int,direction:Literal['up','down'],
 def stop_name(cx:int,cy:int,step:int,txt:str,link:str,bold:bool,notes:list):
     """
     Ajouter le nom de l'arrêt avec un lien vers sa page wiki
-    Le paramètre NB permet d'ajouter un Nota Bene (une note)
     """
     bx = 'font-weight:800;' if bold else ""
     addum = ""
