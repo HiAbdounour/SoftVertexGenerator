@@ -78,5 +78,8 @@ def xmlparser(input_file:str):
         elif theme=="METRO":
             metro_generator(base,clr,output,maxpb,width=int(cwidth))
             return output
+        elif theme=="RER":
+            rer_generator(base,clr,output,maxpb,width=int(cwidth))
+            return output
         else:
             raise AttributeError(f"Theme {theme} is not allowed")

@@ -11,5 +11,6 @@ VELO - à venir
 from .bustheme import bus_generator
 from .tramtheme import tram_generator
 from .metrotheme import metro_generator
+from .rertheme import rer_generator
 
-__all__ = ['bus_generator','tram_generator','metro_generator']
+__all__ = ['bus_generator','tram_generator','metro_generator','rer_generator']
