@@ -78,10 +78,7 @@ def stop_name(cx:int,cy:int,step:int,txt:str,link:str,bold:bool,underNB:str|None
     Le paramètre NB permet d'ajouter un Nota Bene (une note)
     """
     bx = 'font-weight:800;' if bold else ""
-    if underNB is None:
-        addum = ""
-    else:
-        addum = f'<text x="{cx+step}" y="{cy+25}" style="cursor:pointer;{bx};font-style:italic;font-size:12px;">({xml_characters(underNB)})</text>'
+    addum = ""
     return f'<a href="https://idfmwiki.miraheze.org/wiki/{xml_characters(link)}" target="_self">\n<text x="{cx+step}" y="{cy+6}" style="cursor:pointer;{bx}">{xml_characters(txt)}</text>{addum}\n</a>'
 
 def crosssection(cx:int,cy:int,dx:int,clr:str,from_active:bool=False,to_active:bool=False):
