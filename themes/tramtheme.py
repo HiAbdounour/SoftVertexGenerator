@@ -30,7 +30,7 @@ def unidirectional_stop(cx:int,cy:int,dx:int,direction:Literal['up','down'],cls:
     else:
         raise ValueError(f"Direction {direction} is not valid. Please state 'up' or 'down' or use the stop() function instead.")
 
-    return f'<polygon points="{tri}" fill="black"/>\n{stop(cx,cy,dx,cls)}'
+    return f'{stop(cx,cy,dx,cls)}\n<polygon points="{tri}" fill="black"/>'
 
 def tranch(cx:int,cy:int,clr:str,dx:int,curz:Literal["start","end"]|None):
     """
@@ -98,8 +98,10 @@ def crosssection(cx:int,cy:int,dx:int,clr:str,from_active:bool=False,to_active:b
         ddd = 1
     else:
         raise RuntimeError('from or to crosssection ?')
-    return f'''<polygon points="{AX},{AY} {AX+14},{AY} {AX+23},{AY+10*ddd} {AX+23},{AY+20*ddd} {AX+16},{AY+20*ddd}" fill="{clr}"/>\n
-    <polygon points="{AX+32},{AY} {AX+46},{AY} {AX+30},{AY+20*ddd} {AX+23},{AY+20*ddd} {AX+23},{AY+10*ddd}" fill="{clr}"/>'''
+    return f'''<polygon points="{AX},{AY} {AX+14},{AY} {AX+23},{AY+10*ddd} {AX+23},{AY+20*ddd} {AX+16},{AY+20*ddd}" fill="white"/>\n
+    <polygon points="{AX+32},{AY} {AX+46},{AY} {AX+30},{AY+20*ddd} {AX+23},{AY+20*ddd} {AX+23},{AY+10*ddd}" fill="white"/>\n
+    <polygon points="{AX+4.5},{AY} {AX+10.5},{AY} {AX+23.5},{AY+14*ddd} {AX+23.5},{AY+20*ddd} {AX+20.5},{AY+20*ddd}" fill="{clr}" fill-opacity="0.6"/>\n
+    <polygon points="{AX+36.5},{AY} {AX+42.5},{AY} {AX+26.5},{AY+20*ddd} {AX+23.5},{AY+20*ddd} {AX+23.5},{AY+14*ddd}" fill="{clr}" fill-opacity="0.6"/>'''
 
 #### CONTROLE
 def tram_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,presety:int|None=None,way:Literal["from",'to']|None=None,width:int=500):
