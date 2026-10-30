@@ -98,7 +98,11 @@ def crosssection(cx:int,cy:int,dx:int,clr:str,from_active:bool=False,to_active:b
         ddd = 1
     else:
         raise RuntimeError('from or to crosssection ?')
-    return f''
+    
+    return f'''<polygon points="{AX+1},{AY} {AX+5},{AY} {AX+20},{AY+20*ddd} {AX+16},{AY+20*ddd}" fill="{clr}"/>\n
+    <polygon points="{AX+41},{AY} {AX+45},{AY} {AX+30},{AY+20*ddd} {AX+26},{AY+20*ddd}" fill="{clr}"/>\n
+    <polygon points="{AX+11},{AY} {AX+23},{AY+14*ddd} {AX+35},{AY} {AX+31},{AY} {AX+23},{AY+10*ddd} {AX+15},{AY}" fill="{clr}"/>\n
+    <polygon points="{AX+5},{AY} {AX+11},{AY} {AX+23},{AY+14*ddd} {AX+35},{AY} {AX+41},{AY} {AX+26},{AY+20*ddd} {AX+20},{AY+20*ddd}" fill="{clr}" fill-opacity="0.6"/>'''
 
 #### CONTROLE
 def tram_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,presety:int|None=None,way:Literal["from",'to']|None=None,width:int=500):
