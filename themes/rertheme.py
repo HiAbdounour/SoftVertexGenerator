@@ -10,7 +10,7 @@ def closed(cx:int,cy:int):
     """
     Place une croix rouge pour signifier la fermeture d'un arrêt
     """
-    return f'<path d="M{cx-8} {cy+8-1.455}L{cx-8+1.455} {cy+8} {cx} {cy+1.455} {cx+8-1.455} {cy+8} {cx+8} {cy+8-1.455} {cx+1.455} {cy} {cx+8} {cy-8+1.455} {cx+8-1.455} {cy-8} {cx} {cy-1.455} {cx-8+1.455} {cy-8} {cx-8} {cy-8+1.455} {cx-1.455} {cy}z" fill="red" fill-rule="evenodd"></path>'
+    return f'<path d="M{cx-7} {cy+10-1.819}L{cx-7+1.819} {cy+10} {cx+3} {cy+1.819} {cx+13-1.819} {cy+10} {cx+13} {cy+10-1.819} {cx+4.819} {cy} {cx+13} {cy-10+1.819} {cx+13-1.819} {cy-10} {cx+3} {cy-1.819} {cx-7+1.819} {cy-10} {cx-7} {cy-10+1.819} {cx+1.181} {cy}z" fill="red" fill-rule="evenodd"></path>'
 
 def stop(cx:int,cy:int,dx:int,cls:bool=False):
     """
