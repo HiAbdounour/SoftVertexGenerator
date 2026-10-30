@@ -81,6 +81,8 @@ def stop_name(cx:int,cy:int,step:int,txt:str,link:str,bold:bool,notes:list):
     addum = ""
     if notes[0] is not None: # <above> tag
         addum = addum + f'<text x="{cx+step}" y="{cy-12}" style="cursor:pointer;{bx};font-style:italic;font-size:8px;">{xml_characters(notes[0].text)}</text>'
+    if notes[2] is not None: # <under> tag
+        addum = addum + f'<text x="{cx+step}" y="{cy+20}" style="cursor:pointer;{bx};font-style:italic;font-size:10px;">{xml_characters(notes[2].text)}</text>'
 
     return f'<a href="https://idfmwiki.miraheze.org/wiki/{xml_characters(link)}" target="_self">\n<text x="{cx+step}" y="{cy+6}" style="cursor:pointer;{bx}">{xml_characters(txt)}</text>{addum}\n</a>'
 
