@@ -5,6 +5,7 @@ Le thème utilisé pour les lignes de métro
 from typing import Literal
 from xml.etree.ElementTree import Element
 from core.utils import xml_characters
+from constants.constants import CULTURAL_BG
 
 def closed(cx:int,cy:int):
     """
@@ -78,7 +79,10 @@ def stop_name(cx:int,cy:int,step:int,txt:str,link:str,bold:bool,notes:list):
     if notes[0] is not None: # <above> tag
         addum = addum + f'<text x="{cx+step}" y="{cy-12}" style="cursor:pointer;{bx};font-style:italic;font-size:8px;">{xml_characters(notes[0].text)}</text>'
     if notes[2] is not None: # <under> tag
-        addum = addum + f'<text x="{cx+step}" y="{cy+20}" style="cursor:pointer;{bx};font-style:italic;font-size:10px;">{xml_characters(notes[2].text)}</text>'
+        c = notes[2].get("cultural")=='true'
+        cult = 'filter="url(#bg-brown)" fill="white"' if c else ""
+        xstep = 10 if c else 0
+        addum = addum + f'<text x="{cx+step+xstep}" y="{cy+20}" style="cursor:pointer;{bx};font-size:10px;" {cult}>{xml_characters(notes[2].text)}</text>'
 
     return f'<a href="https://idfmwiki.miraheze.org/wiki/{xml_characters(link)}" target="_self">\n<text x="{cx+step}" y="{cy+6}" style="cursor:pointer;{bx}">{xml_characters(txt)}</text>{addum}\n</a>'
 
@@ -241,7 +245,7 @@ def save_file(SVG:str,output:str,J:int,width:int):
 
     # Enregistrement
     with open(output,"w") as svgfile:
-        svgfile.write(HEADER1+HEADER2+SVG+'\n</svg>')
+        svgfile.write(HEADER1+HEADER2+CULTURAL_BG+SVG+'\n</svg>')
     return
 
 

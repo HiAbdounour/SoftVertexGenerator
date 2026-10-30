@@ -21,6 +21,19 @@ IDFM_COLORS = {
 	'bleu_nuit':'#0A0082'
 }
 
+# CULTURAL DEFINITION
+CULTURAL_BG = """<defs>
+    <filter id="bg-brown" x="-10%" y="-20%" width="140%" height="160%">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="8" result="expanded"/>
+      <feFlood flood-color="#6E491E" result="color"/>
+      <feComposite in="color" in2="expanded" operator="in" result="background"/>
+      <feMerge>
+        <feMergeNode in="background"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+</defs>"""
+
 # ESCAPING CHARACTERS
 XML_ESCAPING = {
     "à": "&#224;",
