@@ -98,10 +98,7 @@ def crosssection(cx:int,cy:int,dx:int,clr:str,from_active:bool=False,to_active:b
         ddd = 1
     else:
         raise RuntimeError('from or to crosssection ?')
-    return f'''<polygon points="{AX},{AY} {AX+14},{AY} {AX+23},{AY+10*ddd} {AX+23},{AY+20*ddd} {AX+16},{AY+20*ddd}" fill="white"/>\n
-    <polygon points="{AX+32},{AY} {AX+46},{AY} {AX+30},{AY+20*ddd} {AX+23},{AY+20*ddd} {AX+23},{AY+10*ddd}" fill="white"/>\n
-    <polygon points="{AX+4.5},{AY} {AX+10.5},{AY} {AX+23.5},{AY+14*ddd} {AX+23.5},{AY+20*ddd} {AX+20.5},{AY+20*ddd}" fill="{clr}" fill-opacity="0.6"/>\n
-    <polygon points="{AX+36.5},{AY} {AX+42.5},{AY} {AX+26.5},{AY+20*ddd} {AX+23.5},{AY+20*ddd} {AX+23.5},{AY+14*ddd}" fill="{clr}" fill-opacity="0.6"/>'''
+    return f''
 
 #### CONTROLE
 def tram_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,presety:int|None=None,way:Literal["from",'to']|None=None,width:int=500):
@@ -163,7 +160,7 @@ def tram_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False
                 A = crosssection(0,J-30,dx,clr,to_active=True)
                 way = 'to'
                 SVG = SVG+A
-                J-=6
+                J-=5
             elif cmpx!=len(line)-1 and line[cmpx+1].tag=='branch':
                 # la crosssection vient plus loin
                 way = 'from'
@@ -195,7 +192,7 @@ def tram_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False
             dx = 15*(maxpb-1)-1
             A = crosssection(0,J-30,dx,clr,to_active=True)
             SVG = SVG+A
-            J-=6
+            J-=5
 
             # première balise :: ATTENTION ! <loopup><loopdown> et <loopdown><loopup> donnent des résultats différents !
             dx = 15*(maxpb-1)-15
