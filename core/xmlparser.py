@@ -72,5 +72,8 @@ def xmlparser(input_file:str):
         if theme=='BUS':        
             bus_generator(base,clr,output,maxpb,width=int(cwidth))
             return output
+        elif theme=="TRAM":
+            tram_generator(base,clr,output,maxpb,width=int(cwidth))
+            return output
         else:
             raise AttributeError(f"Theme {theme} is not allowed")
