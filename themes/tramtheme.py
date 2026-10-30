@@ -19,7 +19,7 @@ def stop(cx:int,cy:int,dx:int,cls:bool=False):
     bn = closed(cx,cy) if cls else ""
     return f'<circle cx="{cx+dx}" cy="{cy}" r="8" fill="white" stroke-width="1" stroke="black"/>{bn}'
 
-def unidirectional_stop(cx:int,cy:int,dx:int,clr:str,direction:Literal['up','down'],cls:bool=False):
+def unidirectional_stop(cx:int,cy:int,dx:int,direction:Literal['up','down'],cls:bool=False):
     """
     Un arrêt de LHNS desservi uniquement dans un seul sens
     """
