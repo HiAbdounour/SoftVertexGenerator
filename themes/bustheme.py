@@ -194,7 +194,7 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
             dx = 15*(maxpb-1)-1
             A = crosssection(0,J-30,dx,clr,to_active=True)
             SVG = SVG+A
-            J-=6
+            J-=5
 
             # première balise :: ATTENTION ! <loopup><loopdown> et <loopdown><loopup> donnent des résultats différents !
             dx = 15*(maxpb-1)-15
