@@ -115,7 +115,7 @@ Il y a trois **paramètres obligatoires** à spécifier, sinon quoi, le Soft Ver
         Certaines options ne sont disponibles que sur certains thèmes. Choisir son thème définit donc également les possibilités de représentation.
 
     .. important::
-        Dans le cadre de l'IDFMwiki, il existe des conventions pour le thème à choisir selon la ligne représentée.
+        Dans le cadre de l'IDFMwiki, il existe des :ref:`conventions <conv_theme>` pour le thème à choisir selon la ligne représentée.
 
     Il est également possible de construire son propre thème mais cela demande des connaissances sur le SVG et sur la librairie ``xml.etree`` utilisée.
 
@@ -151,9 +151,9 @@ Il y a trois **paramètres obligatoires** à spécifier, sinon quoi, le Soft Ver
     Les underscores (tirets du 6) font partie du nom de la couleur. Par exemple : ``color="bleu_outremer"``
 
     .. important::
-        Dans le cadre de l'IDFMwiki, il existe des conventions pour la couleur à choisir selon la ligne représentée.
+        Dans le cadre de l'IDFMwiki, il existe des :ref:`conventions <conv_color>` pour la couleur à choisir selon la ligne représentée.
 
-    Il est également possible d'ajouter des couleurs supplémentaires.
+    Il est également possible d'ajouter des :ref:`couleurs supplémentaires <color_lines>`.
 
 **maxpb**
 """"""""""
@@ -226,7 +226,7 @@ Nous vous recommandons (si ce n'est une obligation) de spécifier ``Accueil`` co
     En spécifiant ``Accueil``, vous supprimez ce risque puisqu'un clic sur l'arrêt renverra seulement sur la page d'accueil de l':ref:`IDFMwiki`.
 
 Si votre vertex est destiné à l'IDFMwiki, le texte à indiquer pour la balise ``<wikiref>`` doit être le nom de la page associée sur l'IDFMwiki **en remplaçant les espaces par un underscore (tiret du 6)**.
-Veillez à vérifier le nom de la page, notamment les conventions de nommage employées dans l'IDFMwiki.
+Veillez à vérifier le nom de la page, notamment les :ref:`conventions <conv_stop>` de nommage employées dans l'IDFMwiki.
 
 À titre d'exemple, l'arrêt Joliot Curie dans la ville de Gif-sur-Yvette est associée à la page ``Joliot Curie (Gif-sur-Yvette)`` sur l'IDFMwiki.
 Dans le fichier XML, on doit donc écrire : ``<wikiref>Joliot_Curie_(Gif-sur-Yvette)</wikiref>``.

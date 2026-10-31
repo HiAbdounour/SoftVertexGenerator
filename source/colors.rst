@@ -1,3 +1,4 @@
+.. _color_lines:
 Couleurs de ligne
 =====================
 

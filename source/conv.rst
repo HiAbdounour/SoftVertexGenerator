@@ -3,6 +3,7 @@ Conventions pour l'IDFMwiki
 
 Si vous générez un vertex pour l':ref:`IDFMwiki`, vous devez impérativement respecter certaines conventions.
 
+.. _conv_theme:
 Convention du thème
 ----------------------------
 
@@ -42,6 +43,7 @@ Chaque mode de transport francilien est associé à un thème à utiliser en par
 
 *(1) : en attente de confirmation du déploiement de ce mode de transport*
 
+.. _conv_color:
 Convention des couleurs
 ------------------------------
 
@@ -55,6 +57,7 @@ Pour les lignes anciennes
     - il est possible de retrouver la couleur de la ligne : dans ce cas, on définira la nouvelle couleur ou on utilisera une couleur pré-définie proche
     - il n'est pas possible de retrouver la couleur de la ligne : engagez une discussion avec la communauté de l':ref:`IDFMwiki` pour savoir quelle couleur utilisée
 
+.. _conv_stop:
 Convention de nommage des arrêts
 ----------------------------------
 
