@@ -64,6 +64,15 @@ Quelques définitions
     autosave
     conv
 
+.. toctree::
+    :caption: Ressources utiles
+
+    examples
+    help
+    links
+
+
+
 
 .. Liens utiles et définis
     pour toutes les pages

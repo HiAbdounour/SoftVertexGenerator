@@ -1,3 +1,4 @@
+.. _debut_tuto:
 Rédiger le fichier XML
 =============================
 
