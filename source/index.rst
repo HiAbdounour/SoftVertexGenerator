@@ -36,6 +36,34 @@ Quelques définitions
 
 
 
+.. Barre latérale de navigation
+
+.. toctree::
+
+    index
+    install
+
+.. toctree::
+    :caption: Créer son premier vertex
+
+    fichierxml
+    generation
+    wikimport
+
+.. toctree::
+    :caption: Personnaliser son vertex
+
+    themes
+    colors
+
+.. toctree::
+    :caption: Pour aller plus loin
+
+    inout
+    escape
+    autosave
+    conv
+
 
 .. Liens utiles et définis
     pour toutes les pages

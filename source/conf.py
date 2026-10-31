@@ -27,6 +27,9 @@ html_theme = "sphinx_rtd_theme"
 html_theme_options = {
     "enable_search_shortcuts": "true",
     "globaltoc_maxdepth": -1,
+    'navigation_depth': 4,
+    'collapse_navigation': False,
+    'includehidden': True,
 }
 html_static_path = ['_static']
 
