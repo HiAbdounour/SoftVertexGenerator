@@ -5,7 +5,7 @@ Couleurs de ligne
 Le Soft Vertex Generator fournit **19 couleurs** pour la génération du plan de ligne. Ces 19 couleurs sont tirées de la charte graphique officielle
 d'Île-de-France Mobilités, autorité organisatrice des transports en Île-de-France.
 
-Ces 19 couleurs sont les suivantes :::
+Ces 19 couleurs sont les suivantes : ::
 
     'rouge_coquelicot':'#FF1400',
     'orange':'#FF5A00',

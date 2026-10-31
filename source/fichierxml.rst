@@ -127,7 +127,7 @@ Il y a trois **paramètres obligatoires** à spécifier, sinon quoi, le Soft Ver
     Il existe **19 couleurs pré-définies** qui peuvent être utilisées directement. Ces couleurs font écho aux couleurs officielles utilisées dans la signalétique d'Île-de-France Mobilités,
     l'autorité organisatrice des transports en Île-de-France.
 
-    Voici les 19 noms de couleurs avec leur valeur correspondante :::
+    Voici les 19 noms de couleurs avec leur valeur correspondante : ::
 
         'rouge_coquelicot':'#FF1400',
         'orange':'#FF5A00',
