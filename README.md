@@ -1,5 +1,5 @@
 Ceci est le repo officiel du Soft Vertex Generator.\
-Version actuelle : <!-- à compléter à chaque Release -->
+Version actuelle : **v1.1.0**<!-- à compléter à chaque Release -->
 
 Vous pouvez consulter la documentation officielle [ici](https://softvertexgenerator.readthedocs.io/fr/latest/).
 
