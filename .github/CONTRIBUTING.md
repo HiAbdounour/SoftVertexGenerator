@@ -24,6 +24,8 @@ Voici quelques conseils pour faciliter la compréhension de votre **pull request
 ### Cas particulier de la documentation
 Vous devez avoir Sphinx installé sur votre machine. Un fichier ``requirements.txt`` est présent dans le repo.
 
+Pour créer les fichiers HTML de la documentation, faîtes un ``sphinx-quickstart`` pour une première fois. Les mises à jour se font avec des ``make html``. Les fichiers HTML se situent dans le dossier ``build/html``.
+
 ## 2. Ouvrir une issue
 Vous aidez à déceler les bugs ou vous souhaitez une nouvelle fonctionnalité.
 
