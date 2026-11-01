@@ -71,7 +71,22 @@ Quelques définitions
     help
     links
 
+.. toctree::
+    :caption: API
 
+    Bsvg_generation
+    Bline
+    Bbranch
+    Bbranches
+    Bloop
+    Bloopup
+    Bloopdown
+    Bstop
+    Bname
+    Bwikiref
+    Babove
+    Bnote
+    Bunder
 
 
 .. Liens utiles et définis
