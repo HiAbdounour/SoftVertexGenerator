@@ -21,6 +21,9 @@ Voici quelques conseils pour faciliter la compréhension de votre **pull request
 3. ajoutez le label ``need review`` : il signifie que vous attendez que des personnes vérifient la validité de votre pull request
 4. si votre pull request répond à un bug ou à une demande précisé dans les [Issues](https://github.com/HiAbdounour/SoftVertexGenerator/issues), n'hésitez pas à la citer (avec un hashtag suivi du numéro de l'issue)
 
+### Cas particulier de la documentation
+Vous devez avoir Sphinx installé sur votre machine. Un fichier ``requirements.txt`` est présent dans le repo.
+
 ## 2. Ouvrir une issue
 Vous aidez à déceler les bugs ou vous souhaitez une nouvelle fonctionnalité.
 

@@ -1,10 +1,8 @@
-# SoftVertexGenerator
-Soft Vertex Generator or SVG (oh yeah)
+Ceci est le repo officiel du Soft Vertex Generator.\
+Version actuelle : <!-- à compléter à chaque Release -->
 
+Vous pouvez consulter la documentation officielle [ici](https://softvertexgenerator.readthedocs.io/fr/latest/).
 
--- je ferai la docu plus tard
-(ne pas regarder le dossier docs/ pour le moment <-- refonte à faire>)
+Pour contribuer, consulter le fichier [associé ("CONTRIBUTING.md")](.github/CONTRIBUTING.md).
 
-
--- lien docu UTILISATION : https://softvertexgenerator.readthedocs.io/fr/latest/
--- pour CONTRIBUTION, utiliser un ``CONTRIBUTING.md`` file
+Ce projet est développé par et pour la communauté de l'[IDFMwiki](https://idfmwiki.miraheze.org).
