@@ -40,7 +40,6 @@ Quelques définitions
 
 .. toctree::
 
-    index
     install
 
 .. toctree::
