@@ -1,118 +1,197 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xml>
-<svg_generation type="BUS" color="magenta" maxpb="2">
+<svg_generation type="BUS" color="rouge_coquelicot" maxpb="2" output="Plan4601.svg" savetime="../../Downloads/SoftVertexGenerator_IDFM/BUS/Paris Saclay/">
     <line>
-		<branches>
-			<branch>
-				<stop terminus='true' isOp='true' curz='start'>
-					<name>Pilier des Sentinelles</name>
-					<wikiref>Accueil</wikiref>
-				</stop>
-				<stop terminus='true'>
-					<name>Rangée des Valentons</name>
-					<wikiref>Accueil</wikiref>
-				</stop>
-				<stop>
-					<name>Les Valentons</name>
-					<wikiref>Accueil</wikiref>
-				</stop>
-				<stop closed='true'>
-					<name>Ancienne Gare</name>
-					<wikiref>Accueil</wikiref>
-				</stop>
-				<stop only="down">
-					<name>Vallée de Valence</name>
-					<wikiref>Accueil</wikiref>
-				</stop>
-			</branch>
-			<branch>
-				<stop terminus='true' curz='start'>
-					<name>Limais</name>
-					<wikiref>Accueil</wikiref>
-				</stop>
-				<stop>
-					<name>Queretz</name>
-					<wikiref>Accueil</wikiref>
-				</stop>
-				<stop terminus='true'>
-					<name>Porte Froide</name>
-					<wikiref>Accueil</wikiref>
-				</stop>
-			</branch>
-		</branches>
-        <branch>
-			<stop>
-				<name>La Rochelle-des-Bois</name>
-				<wikiref>Accueil</wikiref>
-			</stop>
-			<stop>
-				<name>Pirène</name>
-				<wikiref>Accueil</wikiref>
-				<note>Desservi uniquement le week-end</note>
+		<branch>
+			<stop terminus='true' curz='start'>
+				<name>Gare d'Orsay Ville</name>
+				<wikiref>Gare_Routière_d'Orsay_Ville</wikiref>
 			</stop>
 		</branch>
 		<loop>
 			<loopdown>
 				<stop>
-					<name>Fort-aux-froids</name>
-					<wikiref>Accueil</wikiref>
+					<name>Chartres</name>
+					<wikiref>Chartres_(Orsay)</wikiref>
 				</stop>
 				<stop>
-					<name>Galaxie des Firmaments</name>
-					<wikiref>Accueil</wikiref>
+					<name>République</name>
+					<wikiref>République_(Orsay)</wikiref>
+				</stop>
+				<stop>
+					<name>Lycée Blaise Pascal</name>
+					<wikiref>Lycée_Blaise_Pascal</wikiref>
+				</stop>
+				<stop>
+					<name>Conservatoire</name>
+					<wikiref>Conservatoire_(Orsay)</wikiref>
+				</stop>
+				<stop>
+					<name>Bois de la Grille Noire</name>
+					<wikiref>Bois_de_la_Grille_Noire</wikiref>
+				</stop>
+				<stop>
+					<name>Parrat</name>
+					<wikiref>Parrat</wikiref>
+				</stop>
+				<stop>
+					<name>Orgeval</name>
+					<wikiref>Orgeval_(Orsay)</wikiref>
 				</stop>
 			</loopdown>
 			<loopup>
 				<stop>
-					<name>Plage Rouge</name>
-					<wikiref>Accueil</wikiref>
-				</stop>
-				<stop terminus='true'>
-					<name>Plateau des Mers Salées</name>
-					<wikiref>Accueil</wikiref>
+					<name>Mairie d'Orsay</name>
+					<wikiref>Mairie_d'Orsay</wikiref>
 				</stop>
 				<stop>
-					<name>Maxiville-sur-Mer</name>
-					<wikiref>Accueil</wikiref>
+					<name>Résidence Saint-Laurent</name>
+					<wikiref>Résidence_Saint-Laurent</wikiref>
+				</stop>
+				<stop>
+					<name>Résidence de l'Yvette</name>
+					<wikiref>Résidence_de_l'Yvette</wikiref>
+				</stop>
+				<stop>
+					<name>Ruisseau</name>
+					<wikiref>Ruisseau_(Orsay)</wikiref>
 				</stop>
 			</loopup>
 		</loop>
 		<branch>
 			<stop>
-				<name>Grosland-sous-Mer</name>
-				<wikiref>Accueil</wikiref>
+				<name>Cimetière d'Orsay</name>
+				<wikiref>Cimetière_d'Orsay</wikiref>
 			</stop>
 			<stop>
-				<name>Friandville Centre</name>
-				<wikiref>Accueil</wikiref>
+				<name>Stade de Rugby</name>
+				<wikiref>Stade_de_Rugby</wikiref>
+			</stop>
+			<stop>
+				<name>Gare de Lozère</name>
+				<wikiref>Gare_de_Lozère</wikiref>
+			</stop>
+			<stop>
+				<name>Groupe Scolaire Jean Macé</name>
+				<wikiref>Groupe_Scolaire_Jean_Macé</wikiref>
+			</stop>
+			<stop>
+				<name>Fourcherolles</name>
+				<wikiref>Fourcherolles_(Palaiseau)</wikiref>
+			</stop>
+			<stop>
+				<name>Bois de Fourcherolles</name>
+				<wikiref>Bois_de_Fourcherolles</wikiref>
+			</stop>
+			<stop>
+				<name>Marceau</name>
+				<wikiref>Marceau_(Palaiseau)</wikiref>
+			</stop>
+			<stop>
+				<name>Collège Charles Péguy</name>
+				<wikiref>Collège_Charles_Péguy_(Palaiseau)</wikiref>
+			</stop>
+			<stop>
+				<name>Palaiseau – Villebon RER Général Leclerc</name>
+				<wikiref>Palaiseau_–_Villebon_RER_Général_Leclerc</wikiref>
+			</stop>
+			<stop>
+				<name>Parc Chabrol</name>
+				<wikiref>Parc_Chabrol</wikiref>
+			</stop>
+			<stop>
+				<name>Place de la Victoire</name>
+				<wikiref>Place_de_la_Victoire</wikiref>
+			</stop>
+			<stop>
+				<name>Mairie de Palaiseau</name>
+				<wikiref>Mairie_de_Palaiseau</wikiref>
+			</stop>
+			<stop>
+				<name>Palaiseau RER Édouard Branly</name>
+				<wikiref>Palaiseau_RER_Édouard_Branly</wikiref>
+			</stop>
+			<stop>
+				<name>Palaiseau RER Rue des Alliés</name>
+				<wikiref>Palaiseau_RER_Rue_des_Alliés</wikiref>
+			</stop>
+			<stop>
+				<name>Rue de la SFIM</name>
+				<wikiref>Rue_de_la_SFIM</wikiref>
+				<note>Desservi par certaines courses scolaires</note>
+			</stop>
+			<stop>
+				<name>Parrat</name>
+				<wikiref>Parrat</wikiref>
+			</stop>
+			<stop>
+				<name>Quartier de la Mesure</name>
+				<wikiref>Quartier_de_la_Mesure</wikiref>
+			</stop>
+			<stop>
+				<name>Les Larris</name>
+				<wikiref>Les_Larris_(Palaiseau)</wikiref>
+			</stop>
+			<stop>
+				<name>Parc d'Ardenay</name>
+				<wikiref>Parc_d'Ardenay</wikiref>
+			</stop>
+			<stop>
+				<name>Place des Causeuses</name>
+				<wikiref>Place_des_Causeuses</wikiref>
+			</stop>
+			<stop terminus="true">
+				<name>Rond-Point Camille Claudel</name>
+				<wikiref>Rond-Point_Camille_Claudel</wikiref>
+			</stop>
+			<stop>
+				<name>Estienne d'Orves</name>
+				<wikiref>Estienne_d'Orves_(Palaiseau)</wikiref>
+			</stop>
+			<stop>
+				<name>Clos du Pileu</name>
+				<wikiref>Clos_du_Pileu</wikiref>
+			</stop>
+			<stop>
+				<name>Marché du Pileu</name>
+				<wikiref>Marché_du_Pileu</wikiref>
+			</stop>
+			<stop only="up">
+				<name>La Vieille Vigne</name>
+				<wikiref>La_Vieille_Vigne</wikiref>
+			</stop>
+			<stop only="up">
+				<name>Rue du Pileu</name>
+				<wikiref>Rue_du_Pileu</wikiref>
+			</stop>
+			<stop>
+				<name>Igny Entreprises</name>
+				<wikiref>Igny_Entreprises</wikiref>
+			</stop>
+			<stop>
+				<name>Ruchères</name>
+				<wikiref>Ruchères</wikiref>
+			</stop>
+			<stop>
+				<name>Gymnase</name>
+				<wikiref>Gymnase_(Igny)</wikiref>
+			</stop>
+			<stop>
+				<name>4 septembre</name>
+				<wikiref>4_septembre_(Igny)</wikiref>
+			</stop>
+			<stop>
+				<name>Bellevue – Kennedy</name>
+				<wikiref>Bellevue_–_Kennedy</wikiref>
+			</stop>
+			<stop>
+				<name>Mairie d'Igny</name>
+				<wikiref>Mairie_d'Igny</wikiref>
+			</stop>
+			<stop terminus="true" curz="end">
+				<name>Gare d'Igny</name>
+				<wikiref>Gare_d'Igny</wikiref>
 			</stop>
 		</branch>
-		<branches>
-			<branch partial="true">
-				<stop>
-					<name>Friandville Les Grands</name>
-					<wikiref>Accueil</wikiref>
-				</stop>
-				<stop terminus='true' curz='end'>
-					<name>Métroville</name>
-					<wikiref>Accueil</wikiref>
-				</stop>
-			</branch>
-			<branch>
-				<stop>
-					<name>Ménopolis Ouest</name>
-					<wikiref>Accueil</wikiref>
-				</stop>
-				<stop>
-					<name>Ménopolis Centre</name>
-					<wikiref>Accueil</wikiref>
-					<note>C'est une grosse gare !</note>
-				</stop>
-				<stop terminus='true' curz='end'>
-					<name>Arnoville – Ménopolis</name>
-					<wikiref>Accueil</wikiref>
-				</stop>
-			</branch>
-		</branches>
     </line>
 </svg_generation>
