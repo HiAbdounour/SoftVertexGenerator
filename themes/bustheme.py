@@ -133,7 +133,7 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
                     A,dj = unibranch_generator(line[cur],clr,dx,J,dTEXT)
                     SVG = SVG+'\n'+A
                     if way=='from':
-                        J+=len(line[cur])*50
+                        J+=len(line[cur])*50+25 ## [[CORRECTION]] 
                 elif (cmpx==1 and way=='to') or (cmpx==0 and way=='from'):
                     cur = 1 if way=='to' else 0
                     oth = (cur+1)%2
@@ -147,7 +147,7 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
                     if way=='to':
                         A,dj = unibranch_generator(line[cur],clr,dx,J+len(line[oth])*50,dTEXT)
                         SVG = SVG+'\n'+A
-                        J+=dj
+                        J += (len(line[cur])+len(line[oth]))*50 ## [[CORRECTION]]
                 else:
                     if way in ['from','to']:
                         raise AttributeError(f"A <branches> tag can only have 2 children, not {len(line)}")
@@ -171,7 +171,7 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
             # les sous-branches
             A,dj = bus_generator(line[cmpx],clr,output,maxpb,True,J,way=way)
             SVG = SVG+'\n'+A
-            J+=dj
+            J = dj ## [[CORRECTION]]
             # crosssection pour les "from"
             if cmpx!=len(line)-1 and line[cmpx+1].tag=='branch':
                 A = crosssection(0,J-50,dx,clr,from_active=True,lp=line[cmpx][0].get('partial')=='true',rp=line[cmpx][0].get('partial')=='true')
@@ -226,9 +226,10 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
         else:
             raise AttributeError(f"Unrecognised <{cpmxtag}> tag !")
 
+    
     # enregistrement
     if not sub:
-        save_file(SVG,output,J,width)
+        save_file(SVG,output,J-25,width) ## [[CORRECTION]]
         return (None,None)
     else: # cas des sous-branches
         return (SVG,J)

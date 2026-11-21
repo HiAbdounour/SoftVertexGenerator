@@ -79,20 +79,5 @@ def xmlparser(input_file:str):
             rer_generator(base,clr,output,maxpb,width=int(cwidth))
         else:
             raise AttributeError(f"Theme {theme} is not allowed")
-        fix_height(output)
         return output
-
-
-# Solution artificielle pour corriger les longs espaces
-def fix_height(target:str):
-    """
-    Corrige post-génération la hauteur du fichier SVG
-    """
-    svg = xET.parse(target)
-
-    root = svg.getroot()
-    lasty = root[len(root)-1][0].get('y')
-
-    root.set("height",f"{int(lasty)+50}px")
-    svg.write(target)
-    return
+    
