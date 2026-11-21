@@ -32,4 +32,4 @@ html_theme_options = {
     'includehidden': True,
 }
 html_static_path = ['_static']
-
+html_css_files = ['custom.css']

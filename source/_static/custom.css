@@ -1,0 +1,28 @@
+/* =========================================
+   OVERWRITING SOME COLORS
+   ========================================= */
+.admonition.attention { /* Attention */
+    background-color: #ffd4c5;
+}
+.admonition.attention .admonition-title {
+    background-color: #ff784b;
+    font-weight: bold;
+}
+
+.admonition.important { /* Important */
+    background-color: #f2e7ff;
+}
+.admonition.important .admonition-title {
+    background-color: #cfb2f3;
+    color: black;
+    font-weight: bold;
+}
+
+.admonition.caution { /* Prudence */
+    background-color: #fff0e6;
+}
+.admonition.caution .admonition-title {
+    background-color: #ffd8b8;
+    color: #984c0c;
+    font-weight: bold;
+}
