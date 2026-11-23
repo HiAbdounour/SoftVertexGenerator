@@ -192,7 +192,7 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
 
             # crosssection "to"
             dx = 15*(maxpb-1)-1
-            A = crosssection(0,J-30,dx,clr,to_active=True)
+            A = crosssection(0,J-30,dx,clr,to_active=True,lp=line[cmpx][0].get('partial')=='true',rp=line[cmpx][1].get('partial')=='true')
             SVG = SVG+A
             J-=5
 
@@ -202,14 +202,14 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
             A,dj = unibranch_generator(loop1,clr,dx,J,dTEXT,fway)
             SVG = SVG+'\n'+A
             for i in range(len(loop2)):
-                A = tranch(15,dj+i*50,clr,dx,None)
+                A = tranch(15,dj+i*50,clr,dx,None,partial=line[cmpx][0].get('partial')=='true')
                 SVG = SVG+'\n'+A
 
             # seconde balise :: ATTENTION ! <loopup><loopdown> et <loopdown><loopup> donnent des résultats différents !
             dx = 15*(maxpb-1)+15
             fway = "up" if loop2.tag=="loopup" else "down"
             for i in range(len(loop1)):
-                A = tranch(15,J+i*50,clr,dx,None)
+                A = tranch(15,J+i*50,clr,dx,None,partial=line[cmpx][1].get('partial')=='true')
                 SVG = SVG+'\n'+A
             A,dj = unibranch_generator(loop2,clr,dx,dj,dTEXT,fway)
             SVG = SVG+'\n'+A
@@ -217,10 +217,9 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
 
             # crosssection "from"
             dx = 15*(maxpb-1)-1
-            A = crosssection(0,J-50,dx,clr,from_active=True)
+            A = crosssection(0,J-50,dx,clr,from_active=True,lp=line[cmpx][0].get('partial')=='true',rp=line[cmpx][1].get('partial')=='true')
             SVG = SVG+'\n'+A
-            J-=6
-
+            J-=6           
 
         # balise non reconnue
         else:
