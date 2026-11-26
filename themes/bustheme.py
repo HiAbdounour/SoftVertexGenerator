@@ -179,13 +179,15 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
                 J-=6
 
         # balise <loop>
-        elif cpmxtag == "loop":
+        elif cpmxtag == "loop" or cpmxtag == "biway":
             # checkings complets
             if len(line[cmpx])!=2:
-                raise AttributeError("<loop> tags must exactly have 2 children !")
-            for loopchild in line[cmpx]:
-                if loopchild.tag != "loopup" and loopchild.tag != "loopdown":
+                raise AttributeError(f"<{cpmxtag}> tags must exactly have 2 children !")
+            for child in line[cmpx]:
+                if cpmxtag=="loop" and child.tag != "loopup" and child.tag != "loopdown":
                     raise AttributeError("A <loop> tag was found with unauthorized children.")
+                if cpmxtag=="biway" and child.tag != "branch":
+                    raise AttributeError("A <biway> tag was found with unauthorized children.")
 
             loop1 = line[cmpx][0]
             loop2 = line[cmpx][1]
@@ -198,7 +200,12 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
 
             # première balise :: ATTENTION ! <loopup><loopdown> et <loopdown><loopup> donnent des résultats différents !
             dx = 15*(maxpb-1)-15
-            fway = "up" if loop1.tag=="loopup" else "down"
+            if loop1.tag=="loopup":
+                fway = "up"
+            elif loop1.tag=="loopdown":
+                fway = "down"
+            else:
+                fway = None
             A,dj = unibranch_generator(loop1,clr,dx,J,dTEXT,fway)
             SVG = SVG+'\n'+A
             for i in range(len(loop2)):
@@ -207,7 +214,12 @@ def bus_generator(line:Element[str],clr:str,output:str,maxpb:int,sub:bool=False,
 
             # seconde balise :: ATTENTION ! <loopup><loopdown> et <loopdown><loopup> donnent des résultats différents !
             dx = 15*(maxpb-1)+15
-            fway = "up" if loop2.tag=="loopup" else "down"
+            if loop2.tag=="loopup":
+                fway = "up"
+            elif loop2.tag=="loopdown":
+                fway = "down"
+            else:
+                fway = None
             for i in range(len(loop1)):
                 A = tranch(15,J+i*50,clr,dx,None,partial=line[cmpx][1].get('partial')=='true')
                 SVG = SVG+'\n'+A
